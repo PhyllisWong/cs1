@@ -76,7 +76,7 @@ def payout():
         pay_result = (bet_amount * 2)
     else:
         pay_result =  (-bet_amount)
-    print('The amount you won this round is ' + str(pay_result) + '. Your new bank total is ' + str(bank_account + pay_result))
+    print('The amount you won this round is ' + str(pay_result))
     return pay_result
 
 def play_game():
@@ -88,5 +88,7 @@ def play_game():
     Determine if the user won or lost.
     Pay or deduct money from the user accordingly.
     """
-    payout()
-    print('Thanks for playing, come back and play anytime!')
+    global bank_account
+    winnings = payout()
+    bank_account += winnings
+    print('Your new bank ammount is ' + str(bank_account) + ' Thanks for playing, come back and play anytime!')
