@@ -1,21 +1,14 @@
-# Take a bet
-# bet takes color
-# bet takes number
-# bet takes bet amount
-
-# spin the wheel - generate the number
-# random module rand.int
-# check the result - did the bet match the result of the spin
-# if win - pay accordingly
-# if loss - keep money
+'''Rules of roulette: player bets a color, a number, and a dollar amount.
+The player gets to bet for both color, and number. If the color matches, the player wins double their bet. If the number matches, the player wins ten times their bet. If they match both the color and the number, they win the jackpot. Jackpot is 100 times their bet.'''
 
 # functions should do one thing only!!!!
 import random
 random.seed(0)
 
+''' Add a feature to have the user input color, number, and amount'''
 bank_account = 1000
 bet_amount = 10
-bet_color = 'red'
+bet_color = 'black'
 bet_num = 24
 
 green = [0, 37]
@@ -26,7 +19,7 @@ def take_bet(color, number):
     total_bet = []
     total_bet.append(color)
     total_bet.append(number)
-    print('Your bet was ' + str(total_bet) + ' ' + str(bet_amount))
+    print('Your bet was ' + str(total_bet) + ' for $' + str(bet_amount))
     return total_bet
 
 def roll_ball():
@@ -62,7 +55,7 @@ def check_results(arr1, arr2):
         return ('lost')
 
 def payout(string):
-    '''returns total amount won or lost by user based on results of roll. '''
+    '''returns total amount won or lost by user based on results of roll.'''
     pay_result = 0
     if string == 'jackpot':
         pay_result = (bet_amount * 100)
@@ -75,10 +68,7 @@ def payout(string):
     return pay_result
 
 def play_game():
-    """This is the main function for the game.
-    When this function is called, one full iteration of roulette,
-    including: Take the user's bet. Roll the ball.
-    Determine if the user won or lost. Pay or deduct money from the user accordingly. """
+    '''This is the main function for the game.'''
     global bank_account
     # returns an array [color, num, amount]
     player_bet = take_bet(bet_color, bet_num)
@@ -89,4 +79,4 @@ def play_game():
     winnings = payout(did_player_win)
     bank_account += winnings
     print('The amount you won this round is ' + str(winnings))
-    print('Your new bank ammount is ' + str(bank_account) + '. Thanks for playing, come back and play anytime!')
+    print('Your new bank ammount is $' + str(bank_account) + '. Thanks for playing, come back and play anytime!')
