@@ -26,7 +26,7 @@ def take_bet(color, number):
     total_bet = []
     total_bet.append(color)
     total_bet.append(number)
-    # print('After this bet, you have ' + str(bank_account - bet_amount) + ' left to bet.')
+    print('Your bet was ' + str(total_bet) + ' ' + str(bet_amount))
     return total_bet
 
 def roll_ball():
@@ -77,11 +77,8 @@ def payout(string):
 def play_game():
     """This is the main function for the game.
     When this function is called, one full iteration of roulette,
-    including:
-    Take the user's bet.
-    Roll the ball.
-    Determine if the user won or lost.
-    Pay or deduct money from the user accordingly. """
+    including: Take the user's bet. Roll the ball.
+    Determine if the user won or lost. Pay or deduct money from the user accordingly. """
     global bank_account
     # returns an array [color, num, amount]
     player_bet = take_bet(bet_color, bet_num)
