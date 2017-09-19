@@ -80,3 +80,5 @@ def play_game():
     bank_account += winnings
     print('The amount you won this round is ' + str(winnings))
     print('Your new bank ammount is $' + str(bank_account) + '. Thanks for playing, come back and play anytime!')
+
+    play_game()
