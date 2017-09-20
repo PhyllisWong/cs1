@@ -40,7 +40,7 @@ def ask_bet_num():
 def ask_bet_amount():
     global bet_amount
     amount = input('How much do you want to bet in dollars: ')
-    bet_amount = amount
+    bet_amount = int(amount)
     return
 
 
@@ -48,6 +48,7 @@ def take_bet(color, number):
     total_bet = []
     total_bet.append(color)
     total_bet.append(number)
+    print(total_bet)
     return total_bet
 
 
@@ -68,20 +69,17 @@ def roll_ball():
 
 def check_results(arr1, arr2):
     '''Compares bet_color to color rolled.'''
-    result = 0
-    if (arr1[0] == arr2[0]):
-        print('You won the color matching')
-        result += 1
-        return ('win')
+    if (arr1[0] == arr2[0] and arr1[1] == arr2[1]):
+        print('You won the jackpot, congratulations!')
+        return ('jackpot')
     elif (arr1[1] == arr2[1]):
         print('You won the number matching')
-        result += 2
         return ('big win')
-    elif (arr1[0] == arr2[0] and arr1[1] == arr2[1]):
-        print('You won the jackpot, congratulations!')
-        result += 3
-        return ('jackpot')
+    elif (arr1[0] == arr2[0]):
+        print('You won the color matching')
+        return ('win')
     else:
+        print('Sorry, better luck next time')
         return ('lost')
 
 
@@ -95,13 +93,13 @@ def payout(string):
         pay_result = (bet_amount * 10)
     elif string == 'win':
         pay_result = (bet_amount * 2)
-    else:
-        pay_result = (bet_amount * -1)
+    elif string == 'lost':
+        pay_result = -1*(bet_amount)
     return pay_result
 
 
 def ask_to_play_again():
-    play_again = input('Would you like to play again? y or n')
+    play_again = input('Would you like to play again? y or n: ')
     if (play_again == 'y'):
         play_game()
     elif (play_again == 'n'):
@@ -122,11 +120,9 @@ def play_game():
     did_player_win = check_results(player_bet, dealer_roll)
     # returns an int
     cash = payout(did_player_win)
-    #bank_account += cash
-    winningStatement = 'The amount you won this round is ' + str(cash)
-    print(winningStatement)
+    bank_account += int(cash)
+    print('The amount you won this round is ' + str(cash))
     print('Your new bank amount is $' + str(bank_account))
     ask_to_play_again()
-    return
 
 play_game()
