@@ -48,7 +48,7 @@ def take_bet(color, number):
     total_bet = []
     total_bet.append(color)
     total_bet.append(number)
-    print(total_bet)
+    #print(total_bet)
     return total_bet
 
 
@@ -120,9 +120,10 @@ def play_game():
     did_player_win = check_results(player_bet, dealer_roll)
     # returns an int
     cash = payout(did_player_win)
-    bank_account += int(cash)
+    account = bank_account + int(cash)
     print('The amount you won this round is ' + str(cash))
-    print('Your new bank amount is $' + str(bank_account))
+    print('Your new bank amount is $' + str(account))
+    bank_account = account
     ask_to_play_again()
 
 play_game()
