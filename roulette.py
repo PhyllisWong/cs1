@@ -40,7 +40,12 @@ def ask_bet_num():
 def ask_bet_amount():
     global bet_amount
     amount = input('How much do you want to bet in dollars: ')
-    bet_amount = int(amount)
+    int_amount = int(amount)
+    if type(int_amount) == int:
+        bet_amount = int_amount
+    else:
+        print('That is not a valid dollar amount')
+        ask_bet_amount()
     return
 
 
