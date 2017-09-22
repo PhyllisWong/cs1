@@ -1,8 +1,7 @@
-
+'''Randomize a number between 0 and 37'''
 import random
 random.seed(0)
 
-'''Add a feature to have the user input color, number, and amount'''
 bank_account = 1000
 bet_amount = 0
 bet_color = None
@@ -28,12 +27,12 @@ def ask_bet_color():
 
 def ask_bet_num():
     global bet_num, green, red, black
-    ask_num = input('Pick a number between 0 and 38: ')
+    ask_num = input('Pick a number between 0 and 37: ')
     num = int(ask_num)
     if (num in green) or (num in red) or (num in black):
         bet_num = num
     else:
-        print('That is not a number between 0 and 38')
+        print('Not a valid number, try again')
         ask_bet_num()
     return
 
@@ -44,12 +43,13 @@ def ask_bet_amount():
     if type(int_amount) == int:
         bet_amount = int_amount
     else:
-        print('That is not a valid dollar amount')
+        print('Invalid input, try again')
         ask_bet_amount()
     return
 
 
 def take_bet(color, number):
+    '''collect the bets, store in an array'''
     total_bet = []
     total_bet.append(color)
     total_bet.append(number)
@@ -60,7 +60,7 @@ def take_bet(color, number):
 def roll_ball():
     '''returns a random number between 0 and 37'''
     results = []
-    ball_num = random.randint(0, 37)
+    ball_num = random.randint(0, 38)
     if (ball_num in green):
         results.append('green')
     elif (ball_num in red):
@@ -72,15 +72,15 @@ def roll_ball():
     return results
 
 
-def check_results(arr1, arr2):
-    '''Compares bet_color to color rolled.'''
-    if (arr1[0] == arr2[0] and arr1[1] == arr2[1]):
+def check_results(bet_arr, results_arr):
+    '''Compares user bets to dealer results.'''
+    if (bet_arr[0] == results_arr[0] and bet_arr[1] == results_arr[1]):
         print('You won the jackpot, congratulations!')
         return ('jackpot')
-    elif (arr1[1] == arr2[1]):
+    elif (bet_arr[1] == results_arr[1]):
         print('You won the number matching')
         return ('big win')
-    elif (arr1[0] == arr2[0]):
+    elif (bet_arr[0] == results_arr[0]):
         print('You won the color matching')
         return ('win')
     else:
