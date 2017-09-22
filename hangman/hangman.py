@@ -1,23 +1,36 @@
 import random
 
+
 def loadWord():
-   f = open('words.txt', 'r')
-   wordsList = f.readlines()
-   f.close()
+    '''Reads a text file with a list of words.'''
+    f = open('words.txt', 'r')
+    wordsList = f.readlines()
+    f.close()
+    wordsList = wordsList[0].split(' ')
+    secretWord = random.choice(wordsList)
+    return secretWord
 
-   wordsList = wordsList[0].split(' ')
-   secretWord = random.choice(wordsList)
-   return secretWord
+
+def take_user_guess():
+    '''Get letter from user, output a character'''
+    letter_guessed = input('guess a letter')
+    return letter_guessed
 
 
-def isWordGuessed(secretWord, lettersGuessed):
-    '''
-    secretWord: string, the random word the user is trying to guess.  This is selected on line 9.
-    lettersGuessed: list of letters that have been guessed so far.
-    returns: boolean, True only if all the letters of secretWord are in lettersGuessed;
-      False otherwise
-    '''
-    # FILL IN YOUR CODE HERE...
+def letters_guessed(char):
+    '''Collect all the guesses in an array, return array'''
+    collect_letters = []
+    collect_letters.append(char)
+    return collect_letters
+
+
+def is_word_guessed(secretWord_str, letters_guessed_arr):
+    '''Loop thru the secret_word, return true if all are in word'''
+    letter_counter = 0
+    for i in secretWord_str:
+        if secretWord_str[i] not in letters_guessed_arr:
+            return False
+    return True
 
 
 def getGuessedWord(secretWord, lettersGuessed):
