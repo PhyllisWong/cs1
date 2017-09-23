@@ -1,6 +1,11 @@
 import random
 
 
+good_letters = 'abcdefghijklmnopqestuvwxyz'
+guessed_letters = ''
+secret_word = ''
+
+
 def loadWord():
     '''Reads a text file with a list of words.'''
     f = open('words.txt', 'r')
@@ -11,45 +16,46 @@ def loadWord():
     return secretWord
 
 
-def take_user_guess():
-    '''Get letter from user, output a character'''
-    letter_guessed = input('guess a letter')
-    return letter_guessed
+def take_user_guess(letters_guessed_arr):
+    '''Get letter from user, validate it, output string length 1'''
+    user_guess = input('Guess a letter: ')
+    if type(user_guess) == str:
+        if len(user_guess) == 1:
+            if user_guess not in letters_guessed_arr:
+                return user_guess
+        else:
+            print('You already guessed that.')
+            take_user_guess(letters_guessed_arr)
 
 
-def letters_guessed(char):
-    '''Collect all the guesses in an array, return array'''
-    collect_letters = []
-    collect_letters.append(char)
-    return collect_letters
+# def letters_guessed(char):
+#     '''Collect all the guesses in an array, return array'''
+#     collect_letters = []
 
 
 def is_word_guessed(secretWord_str, letters_guessed_arr):
-    '''Loop thru the secret_word, return true if all are in word'''
-    letter_counter = 0
+    '''Loop thru the secret_word, return true if all are in word.'''
+    # letter_counter = 0
     for i in secretWord_str:
-        if secretWord_str[i] not in letters_guessed_arr:
+        if i not in letters_guessed_arr:
             return False
     return True
 
 
-def getGuessedWord(secretWord, lettersGuessed):
-    '''
-    secretWord: string, the random word the user is trying to guess.  This is selected on line 9.
-    lettersGuessed: list of letters that have been guessed so far.
-    returns: string, of letters and underscores.  For letters in the word that the user has
-    guessed correctly, the string should contain the letter at the correct position.  For letters
-    in the word that the user has not yet guessed, shown an _ (underscore) instead.
-    '''
+def getGuessedWord(letter, good_letters):
+    ''' SecretWord: string, the random word the user is trying to guess. LettersGuessed: list of letters that have been guessed so far. Returns: string, of letters and underscores. For letters in the word that the user has guessed correctly, the string should contain the letter at the correct position. For letters in the word that the user has not yet guessed, shown an _ (underscore) instead.'''
     # FILL IN YOUR CODE HERE...
 
 
-def getAvailableLetters(lettersGuessed):
-    '''
-    lettersGuessed: list of letters that have been guessed so far
+def getAvailableLetters(lettersGuessed_arr):
+    '''lettersGuessed: list of letters that have been guessed so far
     returns: string, comprised of letters that represents what letters have not
       yet been guessed.
     '''
+    results = lettersGuessed_arr
+    for char in good_letters:
+        if char in lettersGuessed_arr:
+
 
 
 def hangman(secretWord):
@@ -66,6 +72,9 @@ def hangman(secretWord):
       user has not yet guessed.
     '''
     # FILL IN YOUR CODE HERE...
+    take_user_guess()
+    letters_guessed = []
+
 
 
 secretWord = loadWord()
