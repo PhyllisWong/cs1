@@ -50,13 +50,14 @@ def getGuessedWord(letter, secret_word, good_letters):
     if letter in good_letters:
         letters_in_word.append(letter)
         '''Figure out how to know what index each letter is at.'''
-        
+
 
 def getAvailableLetters(lettersGuessed_arr):
     '''lettersGuessed: list of letters that have been guessed so far
     returns: string, comprised of letters that represents what letters have not
       yet been guessed.
     '''
+    not_guessed_letters = good_letters.split()
     results = lettersGuessed_arr
     for char in good_letters:
         if char in lettersGuessed_arr:
