@@ -27,7 +27,6 @@ def take_user_guess(letters_guessed_arr):
             print('You already guessed that.')
             take_user_guess(letters_guessed_arr)
 
-
 # def letters_guessed(char):
 #     '''Collect all the guesses in an array, return array'''
 #     collect_letters = []
@@ -43,13 +42,13 @@ def is_word_guessed(secretWord_str, letters_guessed_arr):
 
 
 def getGuessedWord(letter, secret_word, good_letters):
-    ''' SecretWord: string, the random word the user is trying to guess. LettersGuessed: list of letters that have been guessed so far. Returns: string, of letters and underscores. For letters in the word that the user has guessed correctly, the string should contain the letter at the correct position. For letters in the word that the user has not yet guessed, shown an _ (underscore) instead.'''
+    """SecretWord: string, the random word the user is trying to guess. LettersGuessed: list of letters that have been guessed so far. Returns: string, of letters and underscores. For letters in the word that the user has guessed correctly, the string should contain the letter at the correct position. For letters in the word that the user has not yet guessed, shown an _ (underscore) instead."""
     # FILL IN YOUR CODE HERE...
     letters_in_word = []
-
     if letter in good_letters:
         letters_in_word.append(letter)
         '''Figure out how to know what index each letter is at.'''
+        pass
 
 
 def getAvailableLetters(lettersGuessed_arr):
@@ -59,9 +58,10 @@ def getAvailableLetters(lettersGuessed_arr):
     '''
     not_guessed_letters = good_letters.split()
     results = lettersGuessed_arr
+    used_letters = []
     for char in good_letters:
         if char in lettersGuessed_arr:
-
+            used_letters.append(char)
 
 
 def hangman(secretWord):
@@ -80,7 +80,6 @@ def hangman(secretWord):
     # FILL IN YOUR CODE HERE...
     take_user_guess()
     letters_guessed = []
-
 
 
 secretWord = loadWord()
