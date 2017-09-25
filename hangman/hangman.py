@@ -42,13 +42,15 @@ def is_word_guessed(secretWord_str, letters_guessed_arr):
     return True
 
 
-def getGuessedWord(letter, good_letters):
+def getGuessedWord(letter, secret_word, good_letters):
     ''' SecretWord: string, the random word the user is trying to guess. LettersGuessed: list of letters that have been guessed so far. Returns: string, of letters and underscores. For letters in the word that the user has guessed correctly, the string should contain the letter at the correct position. For letters in the word that the user has not yet guessed, shown an _ (underscore) instead.'''
     # FILL IN YOUR CODE HERE...
     letters_in_word = []
+
     if letter in good_letters:
         letters_in_word.append(letter)
-
+        '''Figure out how to know what index each letter is at.'''
+        
 
 def getAvailableLetters(lettersGuessed_arr):
     '''lettersGuessed: list of letters that have been guessed so far
