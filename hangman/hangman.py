@@ -3,7 +3,7 @@ import random
 
 
 good_letters = 'abcdefghijklmnopqestuvwxyz'
-guessed_letters = ''
+guessed_letters = []
 secret_word = ''
 
 
@@ -17,40 +17,43 @@ def loadWord():
     return secretWord
 
 
-def take_user_guess(letters_guessed_arr):
-    '''Get letter from user, validate it, output string length 1'''
+def draw_word(secret_word_str, guessed_letters_arr):
+    '''
+    Inputs a string and an array.
+    Returns hint with letters guessed in place each turn. Ouput string.'''
+    word = ""
+    for c in secret_word_str:
+        if c in guessed_letters_arr:
+            word = word + c
+        else:
+            word = word + " _ "
+    return word
+
+
+def take_user_guess(guessed_letters_arr):
+    '''Get letter from user, validate it, input arr, output string length 1.'''
     user_guess = input('Guess a letter: ')
     if type(user_guess) == str:
         if len(user_guess) == 1:
-            if user_guess not in letters_guessed_arr:
+            if user_guess not in guessed_letters_arr:
+                guessed_letters.append(user_guess)
                 return user_guess
         else:
-            print('You already guessed that.')
-            take_user_guess(letters_guessed_arr)
+            print('Not a valid guess, try again.')
+            take_user_guess(guessed_letters_arr)
 
 # def letters_guessed(char):
 #     '''Collect all the guesses in an array, return array'''
 #     collect_letters = []
 
 
-def is_word_guessed(secretWord_str, letters_guessed_arr):
+def is_word_guessed(secret_word_str, guessed_letters_arr):
     '''Loop thru the secret_word, return true if all are in word.'''
     # letter_counter = 0
-    for i in secretWord_str:
-        if i not in letters_guessed_arr:
+    for i in secret_word_str:
+        if i not in guessed_letters_arr:
             return False
     return True
-
-
-def draw_word(secret_word_str, letters_guessed_str):
-    '''returns to hint with letters guessed in place each turn'''
-    word = ""
-    for c in secret_word_str:
-        if c in letters_guessed_str:
-            word = word + c
-        else:
-            word = word + "_"
-    return word
 
 
 def getGuessedWord(letter, secret_word, good_letters):
@@ -69,16 +72,16 @@ def getGuessedWord(letter, secret_word, good_letters):
         pass
 
 
-def getAvailableLetters(lettersGuessed_arr):
-    '''lettersGuessed: list of letters that have been guessed so far
+def getAvailableLetters(guessed_letters_arr):
+    """lettersGuessed: list of letters that have been guessed so far
     returns: string, comprised of letters that represents what letters have not
       yet been guessed.
-    '''
+    """
     not_guessed_letters = good_letters.split()
-    results = lettersGuessed_arr
+    results = guessed_letters_arr
     used_letters = []
     for char in good_letters:
-        if char in lettersGuessed_arr:
+        if char in guessed_letters_arr:
             used_letters.append(char)
 
 
