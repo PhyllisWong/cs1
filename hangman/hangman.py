@@ -1,3 +1,4 @@
+"""Game to play hangman."""
 import random
 
 
@@ -53,8 +54,14 @@ def draw_word(secret_word_str, letters_guessed_str):
 
 
 def getGuessedWord(letter, secret_word, good_letters):
-    """SecretWord: string, the random word the user is trying to guess. LettersGuessed: list of letters that have been guessed so far. Returns: string, of letters and underscores. For letters in the word that the user has guessed correctly, the string should contain the letter at the correct position. For letters in the word that the user has not yet guessed, shown an _ (underscore) instead."""
-    # FILL IN YOUR CODE HERE...
+    '''
+    SecretWord: string, the random word the user is trying to guess.
+    LettersGuessed: list of letters that have been guessed so far.
+    Returns: string, of letters and underscores. For letters in the word that.
+    the user has guessed correctly, the string should contain the letter at the
+    correct position. For letters in the word that the user has not yet guessed
+    shown an _ (underscore) instead.
+    '''
     letters_in_word = []
     if letter in good_letters:
         letters_in_word.append(letter)
@@ -73,6 +80,10 @@ def getAvailableLetters(lettersGuessed_arr):
     for char in good_letters:
         if char in lettersGuessed_arr:
             used_letters.append(char)
+
+
+# Out put game play to player in one print statement
+# add new line and tab characters for formatting
 
 
 def hangman(secretWord):
