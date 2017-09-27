@@ -1,4 +1,4 @@
-'''Game to play hangman.'''
+"""Game to play hangman."""
 import random
 import string
 
@@ -17,8 +17,8 @@ def load_word():
 
 
 def draw_word(secret_word):
-    """Input string and an array.
-    Returns hint with letters guessed in place each turn. Ouput string."""
+    """Input string and an array."""
+    """Returns hint with letters guessed in place each turn. Ouput string."""
 
     word = ""
     for c in secret_word:
@@ -42,17 +42,13 @@ def take_user_guess(guessed_letters_arr):
     """Get letter from user, validate it, input arr, output Bool."""
     user_guess = input('Guess a letter: ')
     # fix the str check
-    if user_guess in string.ascii_letters and len(user_guess) == 1:
-        if user_guess not in guessed_letters_arr:
-            guessed_letters_arr.append(user_guess)
-            return True
+    if user_guess in string.ascii_letters:
+        if len(user_guess) == 1:
+            if user_guess not in guessed_letters_arr:
+                guessed_letters_arr.append(user_guess)
+                return True
     else:
         return False
-
-
-# def letters_guessed(char):
-#     '''Collect all the guesses in an array, return array'''
-#     collect_letters = []
 
 
 def is_word_guessed(secret_word_str, guessed_letters_arr):
@@ -64,27 +60,9 @@ def is_word_guessed(secret_word_str, guessed_letters_arr):
     return True
 
 
-def getGuessedWord(letter, secret_word, good_letters):
-    """
-    SecretWord: string, the random word the user is trying to guess.
-    LettersGuessed: list of letters that have been guessed so far.
-    Returns: string, of letters and underscores. For letters in the word that.
-    the user has guessed correctly, the string should contain the letter at the
-    correct position. For letters in the word that the user has not yet guessed
-    shown an _ (underscore) instead.
-    """
-    letters_in_word = []
-    if letter in good_letters:
-        letters_in_word.append(letter)
-        # Figure out how to know what index each letter is at.
-        pass
-
-
-def getAvailableLetters(guessed_letters_arr, user_guess):
-    """lettersGuessed: list of letters that have been guessed so far.
-    Returns: string, comprised of letters that represents what letters have.
-    Not yet been guessed.
-    """
+def getAvailableLetters(guessed_letters, user_guess):
+    """lettersGuessed: list of letters that have been guessed so far."""
+    """Returns: string of letters that represents what letters are avail."""
     # array of letters available to guess
     good_letters_arr = good_letters.split()
     guessed_letters_arr.append(user_guess)
@@ -93,14 +71,6 @@ def getAvailableLetters(guessed_letters_arr, user_guess):
             good_letters_arr.remove(c)
             gl = "".join(guessed_letters_arr)
     return gl
-
-
-# Out put game play to player in one print statement
-def output_to_user(draw_word, guessed_letters_arr):
-    draw_board = draw_word(secret_word_str, guessed_letters_arr)
-    guesses = guessed_letters_arr
-    print((draw_board) + '\t\t' + guessed_letters_arr + '\n\n')
-# add new line and tab characters for formatting
 
 
 def ask_to_play_again():
@@ -118,28 +88,16 @@ def ask_to_play_again():
 
 
 def hangman(word_string):
-    """
-    SecretWord: string, the secret word to guess.
-    Start up a game of Hangman in the command line.
-    * At the start of the game, let the user know how many
-      letters the secretWord contains.
-    * Ask the user to guess one letter per round.
-    * The user should receive feedback immediately after each guess
-      about whether their guess appears in the computer's word.
-    * After each round, you should also display to the user the
-      partially guessed word so far, as well as letters that the
-      user has not yet guessed.
-    """
+    """Secret_word: string, the word to guess."""
+    """At start of the game, give user hint."""
+    """Ask user to guess one letter per round."""
+    """User should receive feedback immediately after each guess"""
+    """Update board w/partially guessed word and guessed letters."""
     global guessed_letters_arr
-    # good_letters = 'abcdefghijklmnopqrstuvwxyz'
     turns = 10
-    # FILL IN YOUR CODE HERE...
-
-    print("Welcome to hangman, you get 10 tries to win.")
+    print("\n"+"Welcome to hangman, you get 10 tries to win."+"\n")
     secret_word = load_word()
-    # print(draw_word(secret_word))
-    # print(secret_word)
-    # take_user_guess(), stay in loop until runs out of turns
+    # take_user_guess, stay in loop until run out of turns
     while turns > 0:
         did_win = is_word_guessed(secret_word, guessed_letters_arr)
         if did_win is True:
@@ -155,19 +113,8 @@ def hangman(word_string):
             print('Not a valid guess, try again.')
             take_user_guess(guessed_letters_arr)
     if turns == 0:
-        print("Sorry, better luck next time.")
+        print("\n"+"Sorry, your secret word was: " + secret_word+"\n")
         ask_to_play_again()
-        # ask_to_play_again()
-    '''did_win = is_word_guessed(secret_word, guessed_letters_arr)
-    guessed_letters = ''.join(guessed_letters_arr)
-    print(draw_board + '\t\t' + guessed_letters)
-    if did_win is False:
-        take_user_guess(guessed_letters_arr)
-        did_win = is_word_guessed(secret_word, guessed_letters_arr)
-        guessed_letters = ''.join(guessed_letters_arr)
-    elif did_win is True:
-        you_win(did_win)
-        return'''
 
 
 # print(draw_word(load_word()))
