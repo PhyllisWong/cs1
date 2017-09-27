@@ -9,10 +9,10 @@ guessed_letters_arr = []
 def load_word():
     """Read a text file with a list of words."""
     f = open('hangman_words.txt', 'r')
-    wordsList = f.readlines()
+    words_list = f.readlines()
     f.close()
-    wordsList = wordsList[0].split(' ')
-    secret_word = random.choice(wordsList)
+    words_list = words_list[0].split(' ')
+    secret_word = random.choice(words_list)
     return secret_word
 
 
@@ -58,19 +58,6 @@ def is_word_guessed(secret_word_str, guessed_letters_arr):
         if i not in guessed_letters_arr:
             return False
     return True
-
-
-def getAvailableLetters(guessed_letters, user_guess):
-    """lettersGuessed: list of letters that have been guessed so far."""
-    """Returns: string of letters that represents what letters are avail."""
-    # array of letters available to guess
-    good_letters_arr = good_letters.split()
-    guessed_letters_arr.append(user_guess)
-    for c in good_letters:
-        if c in guessed_letters_arr:
-            good_letters_arr.remove(c)
-            gl = "".join(guessed_letters_arr)
-    return gl
 
 
 def ask_to_play_again():
