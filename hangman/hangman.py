@@ -4,12 +4,11 @@ import random
 
 good_letters = 'abcdefghijklmnopqrstuvwxyz'
 guessed_letters_arr = []
-secret_word = ''
+turns = 10
 
 
-def loadWord():
+def load_word():
     """Read a text file with a list of words."""
-    global secret_word
     f = open('hangman_words.txt', 'r')
     wordsList = f.readlines()
     f.close()
@@ -36,14 +35,19 @@ def draw_word(secret_word_str, guessed_letters_arr):
 def take_user_guess(guessed_letters_arr):
     """Get letter from user, validate it, input arr, output string length 1."""
     user_guess = input('Guess a letter: ')
-    if type(user_guess) == str:
-        if len(user_guess) == 1:
+    global num_of_guesses_left
+    while num_of_guesses_left > 0:
+        if type(user_guess) == str and len(user_guess) == 1:
             if user_guess not in guessed_letters_arr:
                 guessed_letters_arr.append(user_guess)
+                num_of_guesses_left -= 1
                 return user_guess
-        else:
-            print('Not a valid guess, try again.')
-            take_user_guess(guessed_letters_arr)
+    if num_of_guesses_left == 0:
+        print("Sorry, better luck next time.")
+        ask_to_play_again()
+    else:
+        print('Not a valid guess, try again.')
+        take_user_guess(guessed_letters_arr)
 
 # def letters_guessed(char):
 #     '''Collect all the guesses in an array, return array'''
@@ -86,7 +90,7 @@ def getAvailableLetters(guessed_letters_arr, user_guess):
     for c in good_letters:
         if c in guessed_letters_arr:
             used_letters.append(char)
-    pass
+    return guessed_letters_arr
 
 
 # Out put game play to player in one print statement
@@ -97,11 +101,11 @@ def output_to_user(draw_word, guessed_letters_arr):
 # add new line and tab characters for formatting
 
 
-def you_win(hangman_result):
-    """Get user input to play again."""
-    if hangman_result is True:
-        input("You won, would you like to play again? Y or N: ")
-    elif hangman_result is False:
+def ask_to_play_again():
+    play_again = input('Would you like to play again? y or n: ')
+    if (play_again == 'y'):
+        hangman(secretWord)
+    elif (play_again == 'n'):
         quit()
 
 
@@ -119,7 +123,8 @@ def hangman(secretWord):
       user has not yet guessed.
     """
     # FILL IN YOUR CODE HERE...
-    global secret_word
+    global secret_word, guessed_letters_arr
+    print("Welcome to hangman, you get 5 tries to win.")
     secret_word = loadWord()
     draw_board = draw_word(secret_word, guessed_letters_arr)
     take_user_guess(guessed_letters_arr)
@@ -137,4 +142,5 @@ def hangman(secretWord):
         return
 
 
+secret_word = load_word()
 hangman(secret_word)
