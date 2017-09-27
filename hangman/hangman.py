@@ -2,9 +2,7 @@
 import random
 
 
-good_letters = 'abcdefghijklmnopqrstuvwxyz'
 guessed_letters_arr = []
-turns = 10
 
 
 def load_word():
@@ -17,37 +15,38 @@ def load_word():
     return secret_word
 
 
-def draw_word(secret_word_str, guessed_letters_arr):
-    """
-    Input string and an array.
-    Returns hint with letters guessed in place each turn. Ouput string.
-    """
+def draw_word(secret_word):
+    """Input string and an array.
+    Returns hint with letters guessed in place each turn. Ouput string."""
+
+    word = ""
+    for c in secret_word:
+        word = word + " _ "
+    return word
+
+
+def update_board(secret_word, guessed_letters_arr):
+    """Update the hint with correclty guessed letters."""
     word = ""
 
-    for c in secret_word_str:
+    for c in secret_word:
         if c in guessed_letters_arr:
-            word = word + c
+            word += c
         else:
-            word = word + " _ "
+            word += " _ "
     return word
 
 
 def take_user_guess(guessed_letters_arr):
-    """Get letter from user, validate it, input arr, output string length 1."""
+    """Get letter from user, validate it, input arr, output Bool."""
     user_guess = input('Guess a letter: ')
-    global turns
-    while turns > 0:
-        if type(user_guess) == str and len(user_guess) == 1:
-            if user_guess not in guessed_letters_arr:
-                guessed_letters_arr.append(user_guess)
-                turns -= 1
-                return user_guess
-    if turns == 0:
-        print("Sorry, better luck next time.")
-        ask_to_play_again()
+    if type(user_guess) == str and len(user_guess) == 1:
+        if user_guess not in guessed_letters_arr:
+            guessed_letters_arr.append(user_guess)
+            return True
     else:
-        print('Not a valid guess, try again.')
-        take_user_guess(guessed_letters_arr)
+        return False
+
 
 # def letters_guessed(char):
 #     '''Collect all the guesses in an array, return array'''
@@ -98,7 +97,7 @@ def getAvailableLetters(guessed_letters_arr, user_guess):
 def output_to_user(draw_word, guessed_letters_arr):
     draw_board = draw_word(secret_word_str, guessed_letters_arr)
     guesses = guessed_letters_arr
-    print((draw_board) + '\t\t' + guesses + '\n\n')
+    print((draw_board) + '\t\t' + guessed_letters_arr + '\n\n')
 # add new line and tab characters for formatting
 
 
@@ -123,15 +122,31 @@ def hangman(word_string):
       partially guessed word so far, as well as letters that the
       user has not yet guessed.
     """
+    global guessed_letters_arr
+    good_letters = 'abcdefghijklmnopqrstuvwxyz'
+    turns = 10
     # FILL IN YOUR CODE HERE...
-    global secret_word, guessed_letters_arr
-    print("Welcome to hangman, you get 5 tries to win.")
+
+    print("Welcome to hangman, you get 10 tries to win.")
     secret_word = load_word()
-    draw_board = draw_word(secret_word, guessed_letters_arr)
-    take_user_guess(guessed_letters_arr)
-    # output_to_user(draw_word, guessed_letters_arr)
-    # take_user_guess()
-    did_win = is_word_guessed(secret_word, guessed_letters_arr)
+    print(draw_word(secret_word))
+    print(secret_word)
+    # take_user_guess(), stay in loop until runs out of turns
+    while turns > 0:
+        update = update_board(secret_word, guessed_letters_arr)
+        print(update + '\t\t' + str(guessed_letters_arr))
+        take_guess = take_user_guess(guessed_letters_arr)
+        if take_guess is True:
+            # store variable, update board
+            turns -= 1
+        else:
+            print('Not a valid guess, try again.')
+            take_user_guess(guessed_letters_arr)
+    if turns == 0:
+        print("Sorry, better luck next time.")
+        quit()
+        # ask_to_play_again()
+    '''did_win = is_word_guessed(secret_word, guessed_letters_arr)
     guessed_letters = ''.join(guessed_letters_arr)
     print(draw_board + '\t\t' + guessed_letters)
     if did_win is False:
@@ -140,8 +155,9 @@ def hangman(word_string):
         guessed_letters = ''.join(guessed_letters_arr)
     elif did_win is True:
         you_win(did_win)
-        return
+        return'''
 
 
+# print(draw_word(load_word()))
 secret_word = load_word()
 hangman(secret_word)
