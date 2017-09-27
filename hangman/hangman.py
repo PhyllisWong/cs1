@@ -1,5 +1,6 @@
 '''Game to play hangman.'''
 import random
+import string
 
 
 guessed_letters_arr = []
@@ -40,7 +41,8 @@ def update_board(secret_word, guessed_letters_arr):
 def take_user_guess(guessed_letters_arr):
     """Get letter from user, validate it, input arr, output Bool."""
     user_guess = input('Guess a letter: ')
-    if type(user_guess) == str and len(user_guess) == 1:
+    # fix the str check
+    if user_guess in string.ascii_letters and len(user_guess) == 1:
         if user_guess not in guessed_letters_arr:
             guessed_letters_arr.append(user_guess)
             return True
@@ -102,11 +104,17 @@ def output_to_user(draw_word, guessed_letters_arr):
 
 
 def ask_to_play_again():
+    """Ask user to play again, reset guessed_letters_arr."""
+    global guessed_letters_arr
     play_again = input('Would you like to play again? y or n: ')
     if (play_again == 'y'):
+        guessed_letters_arr = []
         hangman(secret_word)
     elif (play_again == 'n'):
         quit()
+    else:
+        ("Not a valid input.")
+        ask_to_play_again()
 
 
 def hangman(word_string):
@@ -123,14 +131,14 @@ def hangman(word_string):
       user has not yet guessed.
     """
     global guessed_letters_arr
-    good_letters = 'abcdefghijklmnopqrstuvwxyz'
+    # good_letters = 'abcdefghijklmnopqrstuvwxyz'
     turns = 10
     # FILL IN YOUR CODE HERE...
 
     print("Welcome to hangman, you get 10 tries to win.")
     secret_word = load_word()
-    print(draw_word(secret_word))
-    print(secret_word)
+    # print(draw_word(secret_word))
+    # print(secret_word)
     # take_user_guess(), stay in loop until runs out of turns
     while turns > 0:
         did_win = is_word_guessed(secret_word, guessed_letters_arr)
@@ -148,7 +156,7 @@ def hangman(word_string):
             take_user_guess(guessed_letters_arr)
     if turns == 0:
         print("Sorry, better luck next time.")
-        quit()
+        ask_to_play_again()
         # ask_to_play_again()
     '''did_win = is_word_guessed(secret_word, guessed_letters_arr)
     guessed_letters = ''.join(guessed_letters_arr)
