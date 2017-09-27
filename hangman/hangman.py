@@ -133,6 +133,10 @@ def hangman(word_string):
     print(secret_word)
     # take_user_guess(), stay in loop until runs out of turns
     while turns > 0:
+        did_win = is_word_guessed(secret_word, guessed_letters_arr)
+        if did_win is True:
+            print("You win!")
+            ask_to_play_again()
         update = update_board(secret_word, guessed_letters_arr)
         print(update + '\t\t' + str(guessed_letters_arr))
         take_guess = take_user_guess(guessed_letters_arr)
