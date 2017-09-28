@@ -14,9 +14,7 @@ def load_word():
 
 
 def draw_word(secret_word):
-    """Input string and an array."""
-    """Returns hint with letters guessed in place each turn. Ouput string."""
-
+    """Input string. Returns hint with underscores letter."""
     word = ""
     for c in secret_word:
         word = word + " _ "
@@ -26,7 +24,6 @@ def draw_word(secret_word):
 def update_board(secret_word, guessed_letters_arr):
     """Update the hint with correclty guessed letters."""
     word = ""
-
     for c in secret_word:
         if c in guessed_letters_arr:
             word += c
@@ -72,13 +69,10 @@ def ask_to_play_again():
 
 
 def hangman(word_string):
-    """Secret_word: string, the word to guess."""
-    """At start of the game, give user hint."""
-    """Ask user to guess one letter per round."""
-    """User should receive feedback immediately after each guess"""
-    """Update board w/partially guessed word and guessed letters."""
+    """Select a secret word, give a hint, allow 1 guess p/round."""
+    """Give user feedback after each guess update board."""
     guessed_letters_arr = []
-    print("\n"+"Welcome to hangman."+"\n")
+    print("\n"+"Welcome to hangman, you must guess all letters to win."+"\n")
     secret_word = load_word()
     turns = len(secret_word) + 5
     # is_guess_valid, stay in loop until run out of turns
@@ -89,7 +83,7 @@ def hangman(word_string):
             ask_to_play_again()
         update = update_board(secret_word, guessed_letters_arr)
         print(update + '\t\t' + str(guessed_letters_arr))
-        print("\n"+"You have " + str(turns) + " tries to win.")
+        print("\n"+"You have " + str(turns) + " tries.")
         take_guess = is_guess_valid(guessed_letters_arr)
         if take_guess is True:
             # store variable, update board
