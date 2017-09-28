@@ -3,9 +3,6 @@ import random
 import string
 
 
-guessed_letters_arr = []
-
-
 def load_word():
     """Read a text file with a list of words."""
     f = open('hangman_words.txt', 'r')
@@ -38,11 +35,11 @@ def update_board(secret_word, guessed_letters_arr):
     return word
 
 
-def take_user_guess(guessed_letters_arr):
+def is_guess_valid(guessed_letters_arr):
     """Get letter from user, validate it, input arr, output Bool."""
     user_guess = input('Guess a letter: ')
     # fix the str check
-    if user_guess in string.ascii_letters:
+    if user_guess in string.ascii_letters.lower():
         if len(user_guess) == 1:
             if user_guess not in guessed_letters_arr:
                 guessed_letters_arr.append(user_guess)
@@ -54,8 +51,8 @@ def take_user_guess(guessed_letters_arr):
 def is_word_guessed(secret_word_str, guessed_letters_arr):
     """Loop thru the secret_word, return true if all are in word."""
     # letter_counter = 0
-    for i in secret_word_str:
-        if i not in guessed_letters_arr:
+    for c in secret_word_str:
+        if c not in guessed_letters_arr:
             return False
     return True
 
@@ -80,25 +77,26 @@ def hangman(word_string):
     """Ask user to guess one letter per round."""
     """User should receive feedback immediately after each guess"""
     """Update board w/partially guessed word and guessed letters."""
-    global guessed_letters_arr
-    turns = 10
-    print("\n"+"Welcome to hangman, you get 10 tries to win."+"\n")
+    guessed_letters_arr = []
+    print("\n"+"Welcome to hangman."+"\n")
     secret_word = load_word()
-    # take_user_guess, stay in loop until run out of turns
+    turns = len(secret_word) + 5
+    # is_guess_valid, stay in loop until run out of turns
     while turns > 0:
         did_win = is_word_guessed(secret_word, guessed_letters_arr)
         if did_win is True:
-            print("You win!")
+            print("You win! Your word was " + secret_word)
             ask_to_play_again()
         update = update_board(secret_word, guessed_letters_arr)
         print(update + '\t\t' + str(guessed_letters_arr))
-        take_guess = take_user_guess(guessed_letters_arr)
+        print("You have " + str(turns) + " tries to win.")
+        take_guess = is_guess_valid(guessed_letters_arr)
         if take_guess is True:
             # store variable, update board
             turns -= 1
         else:
             print('Not a valid guess, try again.')
-            take_user_guess(guessed_letters_arr)
+            is_guess_valid(guessed_letters_arr)
     if turns == 0:
         print("\n"+"Sorry, your secret word was: " + secret_word+"\n")
         ask_to_play_again()
