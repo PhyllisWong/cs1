@@ -89,7 +89,7 @@ def hangman(word_string):
             ask_to_play_again()
         update = update_board(secret_word, guessed_letters_arr)
         print(update + '\t\t' + str(guessed_letters_arr))
-        print("You have " + str(turns) + " tries to win.")
+        print("\n"+"You have " + str(turns) + " tries to win.")
         take_guess = is_guess_valid(guessed_letters_arr)
         if take_guess is True:
             # store variable, update board
