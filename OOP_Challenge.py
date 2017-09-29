@@ -35,7 +35,7 @@ class Tiger(Animal):
 
 
 class Bear(Animal):
-    """"""
+    """Overwrite sleep method from Super Class Animal"""
     def __init__(self, name):
         super().__init__(name, "fish")
 
@@ -44,7 +44,7 @@ class Bear(Animal):
 
 
 class Unicorn(Animal):
-    """"""
+    """Overwrite the sleep method from super class animal"""
     def __init__(self, name):
         super().__init__(name, "marshmallows")
 
@@ -90,7 +90,9 @@ class Zookeeper(object):
         """"""
         animals_num = str(len(animals))
         population = str(Animal.populationCount())
-        print(self.name + " is feeding " + food + " to " + animals_num + " of " + population + " total animals")
+        # print(self.name + " is feeding " + food + " to " + animals_num + " of " + population + " total animals")
+        print("{} is feeding {} to {} of {} total animals.".format(self.name,
+        food, animals_num, population))
 
         for i in animals:
             i.eat(food)
