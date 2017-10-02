@@ -1,11 +1,11 @@
-# Gradebook
-Application to track student metrics and grades.
+# Grade Book
+Application written in Python to track student metrics and grades.
 
-## Class Room class
+## Classroom class
 - Class name
 - Subject
 - Student Roster
-- Assignments
+- Assignments (maybe)
 - Will consist of various objects to keep track of student grades for each assignment
 
 ## Student class
@@ -19,3 +19,4 @@ Application to track student metrics and grades.
 - Categories of work: Exams, quizzes, homework
 - Weights of each category
 - Method to calculate the average of each category
+- Method to calculate the total class grade
