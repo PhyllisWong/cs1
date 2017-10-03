@@ -54,6 +54,7 @@ class Assignment:
         self.assignment_name = assignment_name
         self.assignment_type = assignment_type
 
+    # Ask Mike if this would be better as an argument
     def get_assignment_weight(assignment_type):
         """Take in a string argument, returns a float."""
         a = assignment_type
