@@ -75,3 +75,7 @@ class Assignment:
 
         quotient = type_sum / len(type_sum)
         return quotient
+
+    def store_assignment():
+        """Append the specific array each time an assignment is created."""
+        pass
