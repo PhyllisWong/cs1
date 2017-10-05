@@ -18,7 +18,6 @@ def setup_for_assignment_test():
 def test_new_student():
     '''Test creating a new student and creating an ID.'''
     student = setup_for_test()
-    print(student)
     assert student.name == 'Egon Lastname'
     assert student.ID == 1
 
@@ -27,18 +26,21 @@ def test_add_assignment():
     '''Test to see if the new assignment has a string name and an int score.'''
     student = setup_for_test()
     student.add_assignment('hw1', 100)
+    student.add_assignment('quiz1', 70)
     assert student.assignments['hw1'] == 100
-
-
-def test_update_assignment():
-    student = setup_for_test()
-    quiz1 = student.add_assignment('quiz1', 70)
     assert student.assignments['quiz1'] == 70
 
 
-def test_read_student():
+def test_update_assignment():
+    '''Test to check that the update assignment function works.'''
+    student = setup_for_test()
+    student.assignments['quiz1'] = 100
+    assert student.assignments['quiz1'] == 100
 
-    pass
+
+def test_read_assignment_score():
+    student = setup_for_test()
+    assert student.assignments != 0
 
 
 def test_delete_student():

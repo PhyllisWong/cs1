@@ -12,12 +12,19 @@ class Student(object):
 
     def add_assignment(self, assignment_name, score):
         self.assignments[assignment_name] = score
-        print("add assignment function")
+        # line below is how to access the score
+        print(self.assignments[assignment_name])
+
+    def update_assignment(self, assignment_name):
+        self.assignments[assignment_name]
+        score = new_score
+        return new_score
 
 
 bob = Student("Bob Jones", 1)
+bob.add_assignment("quiz1", 70)
 print(bob.name)
-print("this is working")
+print(bob.assignments)
 #
 #
 # class Assignment:
