@@ -40,6 +40,7 @@ def test_update_assignment():
 
 def test_read_assignment_score():
     student = setup_for_test()
+    # print(student.assignments)
     assert student.assignments != 0
 
 

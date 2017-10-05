@@ -13,17 +13,29 @@ class Student(object):
     def add_assignment(self, assignment_name, score):
         self.assignments[assignment_name] = score
         # line below is how to access the score
-        print(self.assignments[assignment_name])
+        # print(self.assignments[assignment_name])
 
     def update_assignment(self, assignment_name):
-        self.assignments[assignment_name]
-        score = new_score
+        self.assignments[assignment_name] = new_score
+        # print(self.assignments[assignment_name])
         return new_score
+
+    def get_assignment_score(self, assignment_name):
+        score = self.assignments.get(assignment_name)
+        return score
+
+    def remove_assignment(self, assignment_name):
+        for assignment_name in self.assignments:
+            del assignment_name
+            return self.assignments
 
 
 bob = Student("Bob Jones", 1)
 bob.add_assignment("quiz1", 70)
-print(bob.name)
+bob.add_assignment('hw1', 100)
+bob.remove_assignment("quiz1")
+print(bob.get_assignment_score("quiz1"))
+# print(bob.name)
 print(bob.assignments)
 #
 #
