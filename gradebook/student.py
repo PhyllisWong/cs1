@@ -15,27 +15,39 @@ class Student(object):
         # line below is how to access the score
         # print(self.assignments[assignment_name])
 
-    def update_assignment(self, assignment_name):
+    def update_assignment(self, assignment_name, new_score):
         self.assignments[assignment_name] = new_score
         # print(self.assignments[assignment_name])
-        return new_score
 
     def get_assignment_score(self, assignment_name):
         score = self.assignments.get(assignment_name)
         return score
 
+# needs a rework, not yet working
     def remove_assignment(self, assignment_name):
-        for assignment_name in self.assignments:
-            del assignment_name
-            return self.assignments
+        del(self.assignments[assignment_name])
+
+    def calculate_gpa():
+        pass
+
+    
 
 
 bob = Student("Bob Jones", 1)
+# should print and empty dictionary
+print(bob.assignments)
 bob.add_assignment("quiz1", 70)
 bob.add_assignment('hw1', 100)
-bob.remove_assignment("quiz1")
+# should print a dictionary with 2 assignments
+print(bob.assignments)
+# should print score for named assignment
 print(bob.get_assignment_score("quiz1"))
-# print(bob.name)
+# should remove an assignment of this name
+bob.update_assignment("quiz1", 90)
+# bob.remove_assignment("quiz1")
+# should print a dictionary with 1 assignment
+print(bob.assignments)
+bob.add_assignment('final', 87)
 print(bob.assignments)
 #
 #

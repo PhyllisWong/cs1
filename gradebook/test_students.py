@@ -4,7 +4,7 @@ import pytest
 
 def setup_for_test():
     '''Test to make sure the new student test works.'''
-    student = Student('Egon Lastname', 1)
+    student = Student('Bob Jones', 1)
     return student
 
 
@@ -17,9 +17,9 @@ def setup_for_assignment_test():
 
 def test_new_student():
     '''Test creating a new student and creating an ID.'''
-    student = setup_for_test()
-    assert student.name == 'Egon Lastname'
-    assert student.ID == 1
+    new_student = setup_for_test()
+    assert type(new_student.name) == str
+    assert type(new_student.ID) == int
 
 
 def test_add_assignment():
