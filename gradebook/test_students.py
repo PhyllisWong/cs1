@@ -5,45 +5,46 @@ import pytest
 def setup_for_test():
     '''Test to make sure the new student test works.'''
     student = Student('Bob Jones', 1)
+    # student.add_assignment('hw1', 100)
+    # student.add_assignment('quiz1', 70)
+    # student.update_assignment('quiz1', 100)
     return student
 
 
-def setup_for_assignment_test():
-    '''Set up to make sure the test for score validation works.'''
+def setup_student_with_assignements():
     student = setup_for_test()
-    score = student.assignments['hw1'] = 90
-    return score
+    student.assignments = {'hw1': 100, 'quiz1': 70}
+    return student
 
 
 def test_new_student():
-    '''Test creating a new student and creating an ID.'''
-    new_student = setup_for_test()
-    assert type(new_student.name) == str
-    assert type(new_student.ID) == int
+    '''Test creating a new student with name and ID.'''
+    student = setup_for_test()
+    assert student.name == 'Bob Jones'
+    assert student.ID == 1
 
 
 def test_add_assignment():
     '''Test to see if the new assignment has a string name and an int score.'''
     student = setup_for_test()
-    student.add_assignment('hw1', 100)
-    student.add_assignment('quiz1', 70)
-    assert student.assignments['hw1'] == 100
-    assert student.assignments['quiz1'] == 70
+    student.add_assignment('hw2', 80)
+    assert student.assignments['hw2'] == 80
 
 
 def test_update_assignment():
     '''Test to check that the update assignment function works.'''
-    student = setup_for_test()
-    student.assignments['quiz1'] = 100
+    student = setup_student_with_assignements()
+    student.update_assignment('quiz1', 100)
     assert student.assignments['quiz1'] == 100
 
 
 def test_read_assignment_score():
-    student = setup_for_test()
-    # print(student.assignments)
-    assert student.assignments != 0
+    student = setup_student_with_assignements()
+    student.get_assignment_score('quiz1')
+    assert student.get_assignment_score('quiz1') == 70
 
 
+# This should happen in the classroom class
 def test_delete_student():
 
     pass
