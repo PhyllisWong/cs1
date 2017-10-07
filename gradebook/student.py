@@ -27,5 +27,5 @@ class Student(object):
     def remove_assignment(self, assignment_name):
         del(self.assignments[assignment_name])
 
-    def calculate_gpa():
+    def get_gpa():
         pass

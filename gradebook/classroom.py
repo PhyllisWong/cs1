@@ -8,8 +8,10 @@ class Classroom:
         """Initialize the class with class name and teacher name."""
         self.class_name = class_name
         self.teacher = teacher
+        self.roster = {}
 
 
 def get_student_roster():
     """Method to get all students enrolled in class."""
+    print(self.roster)
     pass
