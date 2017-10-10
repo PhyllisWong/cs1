@@ -27,5 +27,13 @@ class Student(object):
     def remove_assignment(self, assignment_name):
         del(self.assignments[assignment_name])
 
-    def get_gpa():
-        pass
+    def get_gpa(self, assignments):
+        """Iterate thru assignment dictionary, collect count of assignments."""
+        """Add total of all the scores, divide score total by total count."""
+        value_sum = None
+        count = 0
+        for key, value in assignments.items():
+            value_sum += value
+            count += 1
+        gpa = value_sum / count
+        return gpa
