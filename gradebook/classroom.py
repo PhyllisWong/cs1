@@ -1,17 +1,22 @@
 from student import Student
+"""Initialize classroom with a name, a teacher, and a roster of students."""
 
 
 class Classroom:
     """Classroom instantiated with name of class and teacher."""
 
-    def __init__(self, class_name, teacher):
+    def __init__(self, name, teacher):
         """Initialize the class with class name and teacher name."""
-        self.class_name = class_name
+        self.name = name
         self.teacher = teacher
         self.roster = {}
 
 
-def get_student_roster():
-    """Method to get all students enrolled in class."""
+def add_student(self, student_name, id):
+    """Add assignment to assignments dictionary with name and score."""
+    self.roster[student_name] = id
+
+
+def get_student_roster(self, roster):
+    """Print all students enrolled in class."""
     print(self.roster)
-    pass

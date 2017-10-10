@@ -5,9 +5,6 @@ import pytest
 def setup_for_test():
     '''Test to make sure the new student test works.'''
     student = Student('Bob Jones', 1)
-    # student.add_assignment('hw1', 100)
-    # student.add_assignment('quiz1', 70)
-    # student.update_assignment('quiz1', 100)
     return student
 
 
@@ -54,5 +51,4 @@ def test_remove_assignment():
 def test_get_gpa():
     student = setup_student_with_assignements()
     student.get_gpa(student.assignments)
-    print(student.assignments)
     assert student.get_gpa(student.assignments) == 80.0

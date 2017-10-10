@@ -11,20 +11,23 @@ class Student(object):
         self.assignments = {}
 
     def add_assignment(self, assignment_name, score):
+        """Add assignment to assignments dictionary with name and score."""
         self.assignments[assignment_name] = score
         # line below is how to access the score
         # print(self.assignments[assignment_name])
 
     def update_assignment(self, assignment_name, new_score):
+        """Update assignment from assignments dictionary with new score."""
         self.assignments[assignment_name] = new_score
         # print(self.assignments[assignment_name])
 
     def get_assignment_score(self, assignment_name):
+        """Get score from assignments dictionary by assignment_name."""
         score = self.assignments.get(assignment_name)
         return score
 
-# needs a rework, not yet working
     def remove_assignment(self, assignment_name):
+        """Delete assignment from dictionary by assignment_name."""
         del(self.assignments[assignment_name])
 
     def get_gpa(self, assignments):
