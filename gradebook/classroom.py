@@ -11,12 +11,18 @@ class Classroom:
         self.teacher = teacher
         self.roster = {}
 
+    def add_student(self, student_name, id):
+        """Add assignment to assignments dictionary with name and score."""
+        self.roster[student_name] = id
 
-def add_student(self, student_name, id):
-    """Add assignment to assignments dictionary with name and score."""
-    self.roster[student_name] = id
+    def get_student_roster(self, roster):
+        """Print all students enrolled in class."""
+        print(self.roster)
 
+    def add_assignment_to_all():
+        """Add assignments to every student."""
+        pass
 
-def get_student_roster(self, roster):
-    """Print all students enrolled in class."""
-    print(self.roster)
+    def remove_assignment_from_all():
+        """Remove an assignment from every student."""
+        pass

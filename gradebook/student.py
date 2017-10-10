@@ -1,14 +1,16 @@
 """Gradebook program, using OOP to obtain student grades."""
+from classroom import Classroom
 
 
 class Student(object):
     """Information about each student."""
 
-    def __init__(self, name, ID):
+    def __init__(self, name, ID, classroom):
         """Initialize student with name and ID."""
         self.name = name
         self.ID = ID
         self.assignments = {}
+        Classroom.roster += {self.name, self.id}
 
     def add_assignment(self, assignment_name, score):
         """Add assignment to assignments dictionary with name and score."""
