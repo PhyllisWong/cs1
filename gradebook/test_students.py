@@ -13,7 +13,7 @@ def setup_for_test():
 
 def setup_student_with_assignements():
     student = setup_for_test()
-    student.assignments = {'hw1': 100, 'quiz1': 70}
+    student.assignments = {'hw1': 100, 'quiz1': 70, 'final_exam': 70}
     return student
 
 
@@ -44,12 +44,15 @@ def test_read_assignment_score():
     assert student.get_assignment_score('quiz1') == 70
 
 
-# This should happen in the classroom class
-def test_delete_student():
-
-    pass
+def test_remove_assignment():
+    """Test that an assignment was removed."""
+    student = setup_student_with_assignements()
+    student.remove_assignment('quiz1')
+    assert student.assignments == {'hw1': 100, 'final_exam': 70}
 
 
 def test_get_gpa():
-
-    pass
+    student = setup_student_with_assignements()
+    student.get_gpa(student.assignments)
+    print(student.assignments)
+    assert student.get_gpa(student.assignments) == 80.0

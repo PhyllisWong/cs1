@@ -30,10 +30,11 @@ class Student(object):
     def get_gpa(self, assignments):
         """Iterate thru assignment dictionary, collect count of assignments."""
         """Add total of all the scores, divide score total by total count."""
-        value_sum = None
+        value_sum = 0
         count = 0
-        for key, value in assignments.items():
-            value_sum += value
+        for assignment in assignments.items():
+            score = assignment[1]
+            value_sum += score
             count += 1
         gpa = value_sum / count
         return gpa
