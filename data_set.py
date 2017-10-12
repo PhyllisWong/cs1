@@ -1,9 +1,8 @@
+from collections import Counter
 """Data scraping using Python String Methods."""
 """
 Questions for today’s File I/O problem:
 
-4. What is the most popular payment type in Oakland in March?
-5. How many sales were made on 4/20, which city had the highest sales value?
 6. What is the average sales amount for credit card purchases?
 7. How many purchases were made by bartering with baseball cards?
 """
@@ -91,5 +90,24 @@ print(payments_types_key)
 
 """
 ~~~~~~~~~~~~~~~~  Challenge 5  ~~~~~~~~~~~~~~~
-4. What is the most popular payment type in Oakland in March?
+5. How many sales were made on 4/20, which city had the highest sales value?
 """
+with open("sales_data.txt", "r") as f:
+    listArr = list(f)
+    cities = Counter()
+    city_sales = Counter()
+    for line in listArr:
+        arr = line.split('\t')
+        date = arr[1]
+        city = arr[0].lower()
+        amount = float(arr[3].strip("$\n"))
+        if date == "4/20":
+            cities[city] += 1
+            city_sales[city] += amount
+    # print(cities)
+    print(city_sales)
+    city_w_most = max(cities, key=cities.get)
+    city_w_highest = max(city_sales, key=city_sales.get)
+print(city_w_most)
+print(city_w_highest)
+# Answer: NYC, and NYC
