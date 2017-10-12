@@ -2,8 +2,6 @@
 """
 Questions for today’s File I/O problem:
 
-3. Out of the entire data set, what is the total amount of money
-    people have paid in cash?
 4. What is the most popular payment type in Oakland in March?
 5. How many sales were made on 4/20, which city had the highest sales value?
 6. What is the average sales amount for credit card purchases?
@@ -36,10 +34,62 @@ with open("sales_data.txt", "r") as f:
 """
 # Open file, read each line, split on each "tab"
 with open("sales_data.txt", "r") as f:
-    data_array = []
-    data_dictionary = {}
-    for word in f.readline().split('\t'):
-        data_array.append(word.strip('$\n'))
-        # iterate thru the array
-        # if array[0] !in dictionary, create a new key with value 
-    print(data_array)
+    listArr = list(f)
+    cities = {}
+    for line in listArr:
+        arr = line.split('\t')
+        date = arr[1]
+        city = arr[0]
+        amount = float(arr[3].strip("$\n"))
+        if date.startswith("2"):
+            if city in cities.keys():
+                cities[city] += amount
+            elif city not in cities.keys():
+                cities[city] = amount
+cities_key = max(cities, key=cities.get)
+# print(cities_key)
+# print("$" + str(round(cities[cities_key], 2)))
+# Answer Boston $4320564.95
+
+"""
+~~~~~~~~~~~~~~~~  Challenge 3  ~~~~~~~~~~~~~~~
+3. Out of the entire data set, what is the total amount of money
+    people have paid in cash?
+"""
+with open("sales_data.txt", "r") as f:
+    listArr = list(f)
+    total = 0
+    for line in listArr:
+        arr = line.split('\t')
+        payment = arr[2]
+        amount = float(arr[3].strip("$\n"))
+        if payment.lower() == "cash":
+            total += amount
+    # print("$" + str(round(total, 2)))
+# Answer $123904942.34
+
+"""
+~~~~~~~~~~~~~~~~  Challenge 4  ~~~~~~~~~~~~~~~
+4. What is the most popular payment type in Oakland in March?
+"""
+with open("sales_data.txt", "r") as f:
+    listArr = list(f)
+    payments = {}
+    for line in listArr:
+        # print(line)
+        arr = line.split('\t')
+        city = arr[0].lower()
+        payment_type = arr[2].lower()
+        if city == "oakland":
+            if payment_type in payments.keys():
+                payments[payment_type] += 1
+            elif payment_type not in payments.keys():
+                payments[payment_type] = 1
+payments_types_key = max(payments, key=payments.get)
+print(payments_types_key)
+# Answer baseball cards
+
+"""
+~~~~~~~~~~~~~~~~  Challenge 5  ~~~~~~~~~~~~~~~
+4. What is the most popular payment type in Oakland in March?
+"""
