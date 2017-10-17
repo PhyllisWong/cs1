@@ -111,3 +111,6 @@ with open("sales_data.txt", "r") as f:
 print(city_w_most)
 print(city_w_highest)
 # Answer: NYC, and NYC
+
+# Example of list comprehension: returns total sales
+# sales_total = sum([i[3] for i in cleaned_text])
