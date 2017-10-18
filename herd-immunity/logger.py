@@ -68,8 +68,8 @@ class Logger(object):
         f.close()
         return line_one
 
-    def log_interaction(self, person1, person2, did_infect=None,
-                        person2_vacc=None, person2_sick=None):
+    def log_interaction(self, person1, person2, did_infect,
+                        person2_vacc, person2_sick):
         # TODO: The Simulation object logs each interaction a sick individual
         # has during each time step.
         # This method should accomplish this by using the information

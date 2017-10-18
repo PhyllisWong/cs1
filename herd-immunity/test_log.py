@@ -34,4 +34,22 @@ log_interaction(self, person1, person2, did_infect=None,
 
 
 def test_log_interaction():
-    pass
+    '''
+    Expects did_infect, person2_vacc, and person2_sick as Bools, if passed.
+    - Between values passed with did_infect, person2_vacc, and person2_sick,
+     this method should be able to determine exactly what happened in the
+     interaction and create a String saying so.
+    - The format of the log should be "{person1.ID} infects {person2.ID}",
+     or, for other edge cases, "{person1.ID} didn't infect {person2.ID}
+      because {'vaccinated' or 'already sick'}"
+    - Appends the interaction to logfile.
+    '''
+    f = open("./logs/logging.txt", "a")
+    log1 = Logger("logging.txt")
+    # log1.log_interaction(person1, person2, did_infect,
+    #                      person2_vacc, person2_sick)
+    f.write("Testing Logs Yo!")
+    test_text = f.readline(1)
+    f.close()
+    print(test_text)
+    assert test_text == "Testing Logs Yo!"
