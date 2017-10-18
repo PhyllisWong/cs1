@@ -61,3 +61,9 @@ class Person(object):
         # and return False.
         # If person lives, set is_vaccinated = True infected = None return True
         pass
+
+    def infect_person():
+        pass
+
+    def update_infection_state():
+        pass
