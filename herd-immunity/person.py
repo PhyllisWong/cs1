@@ -49,8 +49,9 @@ class Person(object):
         """Initialize person with vaccination/infection properties."""
         self._id = _id  # simulation auto generates the ID
         self.is_vaccinated = is_vaccinated
-        self.is_alive = True
-        self.infected = None  # store the mortality_rate
+        self.is_alive = is_alive
+        # self.infected = None  # store the mortality_rate
+        self.infected = infected  # store the mortality_rate
 
     def did_survive_infection(self):
         """Check if person survived infection."""

@@ -77,9 +77,9 @@ class Simulation(object):
                  mortality_rate, basic_repro_num, initial_infected=1):
         self.pop_size = pop_size
         self.population = []
-        self.total_infected = 0
+        self.total_infected = initial_infected
         self.current_infected = 0
-        self.next_person_id = 0
+        self.next_id = 0
         self.vacc_percentage = vacc_percentage
         self.virus_name = virus_name
         self.mortality_rate = mortality_rate
@@ -104,41 +104,75 @@ class Simulation(object):
         # self.population attribute.
 
     def _create_population(self, initial_infected):
-        population = []
+        self.population = []
         infected_count = 0
-        while len(population) != self.pop_size:
+        while len(self.population) != self.pop_size:
             if infected_count != initial_infected:
                 infected_count += 1
-                self.next_person_id += 1
-                person_sick = Person(self.next_person_id, is_vaccinated=None,
-                                             infected=self.mortality_rate)
-                population.append(person_sick)
+                self.current_infected += 1
+                self.next_id += 1
+                person_sick = Person(self.next_id, is_vaccinated=None,
+                                     infected=True)
+                self.population.append(person_sick)
             else:
-                self.next_person_id += 1
+                self.next_id += 1
                 rand_num = random.uniform(0, 1)
                 if rand_num < self.vacc_percentage:
-                    person_vacc = Person(self.next_person_id, is_vaccinated=True,
-                                         infected=None)
-                    population.append(person_vacc)
+                    person_vacc = Person(self.next_id, is_vaccinated=True,
+                                         infected=False)
+                    self.population.append(person_vacc)
                 else:
-                    person = Person(self.next_person_id, is_vaccinated=False,
-                                    infected=None)
-                    population.append(person)
-        # for person in population:
-        #     print(person._id)
-        return population
+                    person = Person(self.next_id, is_vaccinated=False,
+                                    infected=False)
+                    self.population.append(person)
+        for person in self.population:
+            print("ID: {}\tVacc: {}\tInfected: {}".format(person._id, person.is_vaccinated,
+                  person.infected))
+        return self.population
 
     def _simulation_should_continue(self):
-        # TODO: This method should return True if the simulation
-        # should continue, or False if it should not.
-        #  The simulation should end under any of the following circumstances:
-        # - The entire population is dead.
-        # - There are no infected people left in the population.
-        # In all other instances, the simulation should continue.
-        pass
+        '''
+        Returns True if the sim should cont./False if it should not.
+        Sim ends under any of the following circumstances:
+        The entire population is dead.
+        There are no infected people left in the population.
+        '''
+        # total_dead = 0
+        # not_infected_count = 0
+        for person in self.population:
+            if any(str(person.is_alive)) is True:
+                    print("Simulation should continue")
+                    return True
+            else:
+                print("Simulation should stop")
+
+            if any(str(person.infected)) is True:
+                print("Simulation should continue")
+                return True
+            else:
+                print("Simulation should stop")
+        # for person in self.population:
+        #     person.is_alive = False
+        #     if person.infected is False:
+        #         print("No longer infected")
+        #         not_infected_count += 1
+        #         print(not_infected_count)
+        #     if person.is_alive is False:
+        #         total_dead += 1
+        # # print("InfectionCount: {}".format(infected_count))
+        # if (total_dead == self.pop_size):
+        #     print("The sim should stop")
+        #     return False
+        # elif (not_infected_count == self.pop_size):
+        #     print("The sim should stop")
+        #     return False
+        # else:
+        #     print("The sim should keep going")
+        #     return True
+
 
     def run(self):
-        # TODO: Finish this method. This method should run the simulation until
+        # TODO: This method should run the simulation until
         # everyone in the simulation is dead, or the disease no longer exists
         # in the population. To simplify the logic here, we will use the helper
         # method _simulation_should_continue() to tell us whether or not we
@@ -223,10 +257,13 @@ class Simulation(object):
 #         initial_infected = int(params[5])
 #     else:
 #         initial_infected = 1
-#     simulation = Simulation(pop_size, vacc_percentage, virus_name,
-#                             mortality_rate, basic_repro_num, initial_infected)
+#     sim = Simulation(pop_size, vacc_percentage, virus_name,
+#                      mortality_rate, basic_repro_num, initial_infected)
 #     simulation.run()
 
 
 sim = Simulation(10, 0.2, "HIV", 0.8, 0.5)
-sim._create_population(2)
+sim._create_population(0)
+sim._simulation_should_continue()
+print(sim.pop_size)
+print(sim.current_infected)
