@@ -1,6 +1,6 @@
 import pytest
 from logger import Logger
-from person import Person
+# from person import Person
 import os
 """Check to see if log outputs as expected."""
 
@@ -13,6 +13,8 @@ def setup_for_test():
 
 
 def test_write_metadata():
+    f = open("./logs/logging.txt", "a")
+    # log1 = Logger("logging.txt")
     log1 = Logger("log1.txt")
     metadata = log1.write_metadata("100", "0.5", "HIV", "0.5", "0.1")
     print(log1)
@@ -34,22 +36,12 @@ log_interaction(self, person1, person2, did_infect=None,
 
 
 def test_log_interaction():
-    '''
-    Expects did_infect, person2_vacc, and person2_sick as Bools, if passed.
-    - Between values passed with did_infect, person2_vacc, and person2_sick,
-     this method should be able to determine exactly what happened in the
-     interaction and create a String saying so.
-    - The format of the log should be "{person1.ID} infects {person2.ID}",
-     or, for other edge cases, "{person1.ID} didn't infect {person2.ID}
-      because {'vaccinated' or 'already sick'}"
-    - Appends the interaction to logfile.
-    '''
-    f = open("./logs/logging.txt", "a")
-    log1 = Logger("logging.txt")
-    # log1.log_interaction(person1, person2, did_infect,
-    #                      person2_vacc, person2_sick)
-    f.write("Testing Logs Yo!")
-    test_text = f.readline(1)
-    f.close()
-    print(test_text)
-    assert test_text == "Testing Logs Yo!"
+    '''Test if log_interactions func appends to the logfile.'''
+    with open("./logs/logging.txt", "r") as f:
+        log1 = Logger("./logs/logging.txt")
+        log1.log_interaction("person1", "person2", "did_infect",
+                             "person2_vacc", "person2_sick")
+        first_line = f.readline()
+        first_line = f.readline()
+        # print(test_text)
+        assert first_line == "person1\tperson2\tdid_infect\tperson2_vacc\tperson2_sick\n"

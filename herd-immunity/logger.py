@@ -52,35 +52,36 @@ class Logger(object):
         # TODO:  Finish this initialization method.  The file_name passed
         # should be the full file name of the file that the logs will be
         # written to.
-        self.file_name = None
+        # self.file_name = None
+        pass
 
     def write_metadata(self, pop_size, vac_percent, virus, kill_rate,
                        vitality_rate):
-        # TODO: Finish this method.  The simulation class calls this method
+        """The simulation class calls this method
         # immediately. to log the specific parameters of the simulation
         # as the first line of the file. This line of metadata is tab-delimited
         # For all other methods, we'll want to use the 'a' mode to append our
-        # new log to the end, since 'w' overwrites the file.
+        # new log to the end, since 'w' overwrites the file."""
         f = open("./logs/logging.txt", "w")
-        line_one = ("{}\t{}\t{}\t{}\t{}\n".format(pop_size, vac_percent, virus,
-                                                  kill_rate, vitality_rate))
+        line_one = ("{}\t{}\t{}\t{}\t{}\n".format(pop_size, vac_percent,
+                                            virus, kill_rate, vitality_rate))
         f.write(line_one)
         f.close()
         return line_one
+        pass
 
     def log_interaction(self, person1, person2, did_infect,
                         person2_vacc, person2_sick):
-        # TODO: The Simulation object logs each interaction a sick individual
-        # has during each time step.
-        # This method should accomplish this by using the information
-        # from person1 (the infected person), person2 (the person randomly
-        # chosen for the interaction), & the optional keyword arguments passed
-        # into the method. See documentation for info on the format of logs
-        #  this method writes.
-        # NOTE:  You'll need to think about how the bools passed
-        # (or not passed) represent all the possible edge cases!
-        # NOTE: Make sure to end every line with a '/n' character!
-        pass
+        """
+        Simulation object logs each interaction a sick individual has during
+        each time step.
+        NOTE:  Think about how the bools passed (or not passed) represent all
+        the possible edge cases!
+        NOTE: Make sure to end every line with a '/n' character!
+        """
+        interaction = "{}\t{}\t{}\t{}\t{}\n".format(person1, person2, did_infect, person2_vacc, person2_sick)
+        with open("./logs/logging.txt", "a") as f:
+            f.write(interaction)
 
     def log_infection_survival(self, person, did_die_from_infection):
         # TODO: The Simulation object should use this method to log the results

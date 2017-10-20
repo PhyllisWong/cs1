@@ -1,5 +1,7 @@
 import random
-# TODO: Import the virus clase
+from virus_class import Virus
+# make a new virus in the person class to test if the function is working
+# TODO: Import the virus class
 
 
 class Person(object):
@@ -43,27 +45,34 @@ class Person(object):
             infected to None.
     """
 
-    def __init__(self, _id, is_vaccinated, infected=None):
+    def __init__(self, _id, is_vaccinated, is_dead):
         """Initialize person with vaccination/infection properties."""
-        # TODO:  Finish this method.
-        # Follow the instructions in the class documentation
-        # to set the corret values for the following attributes.
-        self._id = None
-        self.is_vaccinated = None
-        self.is_alive = None
-        self.infected = None
+        self._id = _id  # simulation auto generates the ID
+        self.is_vaccinated = is_vaccinated
+        self.is_dead = is_dead
+        self.infected = False  # store the mortality_rate
 
-    def did_survive_infection():
+    def did_survive_infection(self, virus):
         """Check if person survived infection."""
         # TODO:  Finish this method.
         # Follow the instructions in the class documentation
         # for resolve_infection.  If person dies, set is_alive to False
         # and return False.
         # If person lives, set is_vaccinated = True infected = None return True
+        rand_num = random.uniform(0, 1)
+        if rand_num < virus.mortality_rate:
+            self.is_dead = True
+        print(rand_num)
         pass
 
     def infect_person():
+        """"""
         pass
 
     def update_infection_state():
+        """"""
         pass
+
+
+# person1 = Person(1, False, False)
+# person1.did_survive_infection()
