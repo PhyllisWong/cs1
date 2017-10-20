@@ -3,27 +3,6 @@ class Logger(object):
     Utility class responsible for logging all interactions of note during the
     simulation.
 
-
-    _____Attributes______
-
-    file_name: the name of the file that the logger will be writing to.
-
-    _____Methods_____
-
-    __init__(self, file_name):
-
-    log_interaction(self, person1, person2, did_infect=None, person2_vacc=None,
-                    person2_sick=None):
-    -Expects person1 and person2 as person objects.
-    - Expects did_infect, person2_vacc, and person2_sick as Bools, if passed.
-    - Between values passed with did_infect, person2_vacc, and person2_sick,
-     this method should be able to determine exactly what happened in the
-     interaction and create a String saying so.
-    - The format of the log should be "{person1.ID} infects {person2.ID}",
-     or, for other edge cases, "{person1.ID} didn't infect {person2.ID}
-      because {'vaccinated' or 'already sick'}"
-    - Appends the interaction to logfile.
-
     log_infection_survival(self, person, did_die_from_infection):
     - Expects person as Person object.
     - Expects bool for did_die_from_infection, with True denoting they died

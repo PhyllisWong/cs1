@@ -45,34 +45,37 @@ class Person(object):
             infected to None.
     """
 
-    def __init__(self, _id, is_vaccinated, is_dead):
+    def __init__(self, _id, is_vaccinated, infected=None):
         """Initialize person with vaccination/infection properties."""
         self._id = _id  # simulation auto generates the ID
         self.is_vaccinated = is_vaccinated
-        self.is_dead = is_dead
-        self.infected = False  # store the mortality_rate
+        self.is_dead = False
+        self.infected = infected  # store the mortality_rate
 
-    def did_survive_infection(self, virus):
+    def did_survive_infection(self):
         """Check if person survived infection."""
-        # TODO:  Finish this method.
+        # TODO:  Write Test for method
         # Follow the instructions in the class documentation
         # for resolve_infection.  If person dies, set is_alive to False
         # and return False.
         # If person lives, set is_vaccinated = True infected = None return True
         rand_num = random.uniform(0, 1)
-        if rand_num < virus.mortality_rate:
+        if rand_num < self.infected.mortality_rate:
             self.is_dead = True
-        print(rand_num)
-        pass
+            return False
+        else:
+            self.is_dead = False
+            self.is_vaccinated = True
+            self.infected = None
+            return True
+        # print(rand_num)
 
     def infect_person():
         """"""
         pass
 
-    def update_infection_state():
-        """"""
-        pass
 
-
-# person1 = Person(1, False, False)
-# person1.did_survive_infection()
+if __name__ == '__main__':
+    hiv = Virus("HIV", 0.8, 0.3)
+    person1 = Person(1, False, hiv)
+    print(person1.did_survive_infection())
