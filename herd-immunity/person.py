@@ -45,12 +45,12 @@ class Person(object):
             infected to None.
     """
 
-    def __init__(self, _id, is_vaccinated, infected=None):
+    def __init__(self, _id, is_vaccinated=None, is_alive=True, infected=None):
         """Initialize person with vaccination/infection properties."""
         self._id = _id  # simulation auto generates the ID
         self.is_vaccinated = is_vaccinated
-        self.is_dead = False
-        self.infected = infected  # store the mortality_rate
+        self.is_alive = True
+        self.infected = None  # store the mortality_rate
 
     def did_survive_infection(self):
         """Check if person survived infection."""
@@ -61,10 +61,10 @@ class Person(object):
         # If person lives, set is_vaccinated = True infected = None return True
         rand_num = random.uniform(0, 1)
         if rand_num < self.infected.mortality_rate:
-            self.is_dead = True
+            self.is_alive = False
             return False
         else:
-            self.is_dead = False
+            self.is_alive = True
             self.is_vaccinated = True
             self.infected = None
             return True
