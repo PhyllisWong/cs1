@@ -172,27 +172,30 @@ class Simulation(object):
         # both people are vaccinated, then both people cant be infected
         if person.vaccinated is True:
             if random_person.vaccinated is True:
-                print("Nothing happens")
                 self.logger.log_interaction()
         # Both people are infected, then both cant be vaccinated
         elif person.infected is True:
             if random_person.infected is True:
-                print("Nothing happens")
                 self.logger.log_interaction()
         # Both are not vaccinated and not infected
         elif person.vaccinated is False and person.infected is False:
             if random_person.vaccinated is False and random_person.infected is False:
-                print("Nothing happens")
                 self.logger.log_interaction()
-        # Person is vaccinated not infected, random_person not vacc or infected
+        # person is vaccinated not infected, random_person not vacc or infected
         elif person.vaccinated is True:
             if random_person.vaccinated is False and random_person.infected is False:
-                print("Nothing happens")
                 self.logger.log_interaction()
         # random_person is vaccinated not infected, person not vacc or infected
         elif random_person.vaccinated is True:
             if person.vaccinated is False and person.infected is False:
-                print("Nothing happens")
+                self.logger.log_interaction()
+        # person is vaccinated not infected, random_person is infected
+        elif person.vaccinated is True:
+            if random_person.infected is True:
+                self.logger.log_interaction()
+        # random_person is vaccinated not infected, person is infected
+        elif random_person.vaccinated is True:
+            if person.infected is True:
                 self.logger.log_interaction()
         # person is not vaccinated or infected, random_person is infected
         elif person.vaccinated is False and person.infected is False:
@@ -213,16 +216,13 @@ class Simulation(object):
         pass
 
     def _infect_newly_infected(self):
-        # TODO: Finish this method! This method should be called at the end of
-        # every time step.This method should iterate through the list stored in
-        # self.newly_infected, should be filled with the IDs of every person
-        # created.  Iterate though this list.
-        # For every person id in self.newly_infected:
-        #   - Find the Person object in self.population that has matching ID.
-        #   - Set this Person's .infected attribute to True.
-        # NOTE: Once you have iterated through the entire list of
-        # self.newly_infected, remember to reset self.newly_infected to []
-        pass
+        self.newly_infected.sort()
+        for person in self.population:
+            if self.newly_infected[0] == person._id:
+                person.infected = True
+                del self.newly_infected[0]
+        if len(self.newly_infected) == 0:
+            break
 
 
 # if __name__ == "__main__":

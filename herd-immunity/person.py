@@ -30,13 +30,12 @@ class Person(object):
         for self.infection.  Otherwise, self.infection should be set to None.
         '''
 
-    def __init__(self, _id, is_vaccinated=None, is_alive=True, infected=None):
-        """Initialize person with vaccination/infection properties."""
+    def __init__(self, _id, is_vaccinated=None, is_alive=True, infected=False):
+        '''Initialize person with vaccination/infection properties.'''
         self._id = _id  # simulation auto generates the ID
         self.is_vaccinated = is_vaccinated
         self.is_alive = is_alive
-        # self.infected = None  # store the mortality_rate
-        self.infected = infected  # store the mortality_rate
+        self.infected = infected  # Bool
 
     def did_survive_infection(self):
         '''
