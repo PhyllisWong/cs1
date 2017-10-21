@@ -145,7 +145,7 @@ class Simulation(object):
         print('The simulation has ended after {} turns.'.format(time_step_counter))
 
     def time_step(self):
-        # TODO: This method should contain all the basic logic for computing
+        # TODO: This method contains all the basic logic for computing
         # one time step in the simulation. This includes:
             # - For each infected person in the population:
             # - Repeat for 100 total interactions:
@@ -156,6 +156,14 @@ class Simulation(object):
             # - Else:
             # - Call simulation.interaction(person, random_person)
             # - Increment interaction counter by 1.
+            for person in self.population:
+                if person.infected is True:
+                    counter = 0
+                    while counter < 100:
+                        random_num = random.range(1, len(self.population))
+                        random_person = self.population[random_num]
+                        self.interaction(person, random_person)
+                        counter += 1
             pass
 
     def interaction(self, person, random_person):
@@ -213,16 +221,16 @@ class Simulation(object):
                     print("random_person contracts the virus")
                     self.newly_infected.append(random_person._id)
                     self.logger.log_interaction()
-        pass
+                    pass
 
-    def _infect_newly_infected(self):
-        self.newly_infected.sort()
-        for person in self.population:
-            if self.newly_infected[0] == person._id:
-                person.infected = True
-                del self.newly_infected[0]
-        if len(self.newly_infected) == 0:
-            break
+    # def _infect_newly_infected(self):
+    #     for person in self.population:
+    #         if self.newly_infected[0] == person._id:
+    #             person.infected = True
+    #             del self.newly_infected[0]
+    #     if len(self.newly_infected) == 0:
+    #         break
+    #     pass
 
 
 # if __name__ == "__main__":
