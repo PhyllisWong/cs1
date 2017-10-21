@@ -137,22 +137,14 @@ class Simulation(object):
         The entire population is dead.
         There are no infected people left in the population.
         '''
-        # total_dead = 0
-        # not_infected_count = 0
         for person in self.population:
-            if any(str(person.is_alive)) is True:
-                    print("Simulation should continue")
+            if person.is_alive:
+                if person.infected:
                     return True
-            else:
-                print("Simulation should stop")
-
-            if any(str(person.infected)) is True:
-                print("Simulation should continue")
-                return True
-            else:
-                print("Simulation should stop")
+        print("Sim should stop")
+        return False
         # for person in self.population:
-        #     person.is_alive = False
+        #     # person.is_alive = False
         #     if person.infected is False:
         #         print("No longer infected")
         #         not_infected_count += 1
@@ -264,6 +256,8 @@ class Simulation(object):
 
 sim = Simulation(10, 0.2, "HIV", 0.8, 0.5)
 sim._create_population(0)
+for person in sim.population:
+    print(person.infected)
 sim._simulation_should_continue()
 print(sim.pop_size)
 print(sim.current_infected)
