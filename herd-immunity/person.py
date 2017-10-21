@@ -76,7 +76,7 @@ class Person(object):
         pass
 
 
-if __name__ == '__main__':
-    hiv = Virus("HIV", 0.8, 0.3)
-    person1 = Person(1, False, hiv)
-    print(person1.did_survive_infection())
+# if __name__ == '__main__':
+#     hiv = Virus("HIV", 0.8, 0.3)
+#     person1 = Person(1, False, hiv)
+#     print(person1.did_survive_infection())

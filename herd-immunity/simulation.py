@@ -5,27 +5,25 @@ from logger import Logger
 
 class Simulation(object):
     '''
-    Main class that will run the herd immunity simulation program.
-    Expects initialization parameters passed as command line arguments
-    when file is run.
+    Main class that runs the herd immunity simulation program.
+    Expects init parameters passed as command line arguments when file is run.
 
     Simulates the spread of a virus through a given population.
-    The percentage of the population that are vaccinated, the size of the
-    population, and the amount of initially infected people in a population
-    are all variables that can be set when the program is run.
+    The population size, percentage that are vaccinated, and the initial num
+    of infected people are variables that are set when the program is run.
 
     _____Attributes______
 
     logger: Logger object. The helper object that will be responsible for
     writing all logs to the simulation.
 
-    population_size: Int. The size of the population for this simulation.
+    pop_size: Int. The size of the population for this simulation.
 
     population: [Person]. A list of person objects representing all people in
         the population.
 
-    next_person_id: Int. The next available id value for all created person
-    objects. Each person should have a unique _id value.
+    next_id: Int. The next available id value for all a new person
+    object. Each person has a unique _id value.
 
     virus_name: String.  The name of the virus for the simulation.
     This will be passed to the Virus object upon instantiation.
@@ -40,7 +38,7 @@ class Simulation(object):
     of population vaccinated for the given simulation.
 
     current_infected: Int. The number of people in the population currently
-    infected with the disease in the simulation.
+    infected with the disease in in each time_step(generation).
 
     total_infected: Int. The running total of people that have been infected
     since the simulation began, including any people currently infected.
@@ -48,29 +46,6 @@ class Simulation(object):
     total_dead: Int. The number of people that have died as a result of the
     infection during this simulation. Starts at zero.
 
-
-    _____Methods_____
-
-    __init__(population_size, vacc_percentage, virus_name, mortality_rate,
-     basic_repro_num, initial_infected=1):
-    -- All arguments will be passed as command-line args when file is run.
-    -- After setting values for attributes, calls self._create_population()
-    to create the population array that will be used for this simulation.
-
-    _create_population(self, initial_infected):
-    -- Expects initial_infected as an Int.
-    -- Should be called only once, at the end of the __init__ method.
-    -- Stores all newly created Person objects in a local variable, population.
-    -- Creates all infected person objects first.
-        Each time a new one is created, increments infected_count += 1.
-    -- Once all infected person objects are created, begins creating healthy
-        person objects.  To decide if a person is vaccinated or not, generates
-        a random number between 0 and 1.  If that number is smaller than
-        self.vacc_percentage, new person object will be created with
-        is_vaccinated set to True.
-        Otherwise, is_vaccinated will be set to False.
-    -- Once len(population) is the same as self.population_size,
-        returns population.
     '''
 
     def __init__(self, pop_size, vacc_percentage, virus_name,
@@ -86,9 +61,10 @@ class Simulation(object):
         self.basic_repro_num = basic_repro_num
         self.file_name = "{}_simulation_pop_{}_vp_{}_infected_{}.txt".format(
             virus_name, pop_size, vacc_percentage, initial_infected)
+        self._create_population(initial_infected)
 
-        # TODO: Create a Logger object and bind it to self.logger. Use this
-        # logger object to log all events during the sim.
+        # TODO: Create a Logger object and bind it to self.logger.
+        # Use this logger object to log all events during the sim.
         # Don't forget to call the logger methods in the corresponding parts
         # of the simulation!
         self.logger = None
@@ -104,6 +80,7 @@ class Simulation(object):
         # self.population attribute.
 
     def _create_population(self, initial_infected):
+        self.current_infected = initial_infected
         self.population = []
         infected_count = 0
         while len(self.population) != self.pop_size:
@@ -133,35 +110,17 @@ class Simulation(object):
     def _simulation_should_continue(self):
         '''
         Returns True if the sim should cont./False if it should not.
-        Sim ends under any of the following circumstances:
-        The entire population is dead.
-        There are no infected people left in the population.
+        Sim ends if the entire population is dead.
+        OR: There are zero infected people in the population.
         '''
         for person in self.population:
             if person.is_alive:
+                print("Sim should keep running")
                 if person.infected:
+                    print("Sim should keep running")
                     return True
         print("Sim should stop")
         return False
-        # for person in self.population:
-        #     # person.is_alive = False
-        #     if person.infected is False:
-        #         print("No longer infected")
-        #         not_infected_count += 1
-        #         print(not_infected_count)
-        #     if person.is_alive is False:
-        #         total_dead += 1
-        # # print("InfectionCount: {}".format(infected_count))
-        # if (total_dead == self.pop_size):
-        #     print("The sim should stop")
-        #     return False
-        # elif (not_infected_count == self.pop_size):
-        #     print("The sim should stop")
-        #     return False
-        # else:
-        #     print("The sim should keep going")
-        #     return True
-
 
     def run(self):
         # TODO: This method should run the simulation until
@@ -254,10 +213,8 @@ class Simulation(object):
 #     simulation.run()
 
 
-sim = Simulation(10, 0.2, "HIV", 0.8, 0.5)
-sim._create_population(0)
-for person in sim.population:
-    print(person.infected)
-sim._simulation_should_continue()
-print(sim.pop_size)
-print(sim.current_infected)
+# for person in sim.population:
+#     print(person.infected)
+# sim._simulation_should_continue()
+# print(sim.pop_size)
+# print(sim.current_infected)
