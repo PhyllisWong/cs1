@@ -5,7 +5,7 @@ from virus_class import Virus
 
 
 class Person(object):
-    """
+    '''
     Person objects will populate the simulation.
 
     _____Attributes______:
@@ -18,11 +18,8 @@ class Person(object):
     is_alive: Bool. All person objects begin alive (value set to true).
     Changed to false if person object dies from an infection.
 
-    Infection: None/Virus object. Set to None for people that are not infected.
-        If a person is infected, will instead be set to the virus object the
-        person is infected with.
-
-    _____Methods_____:
+    Infection: Bool. Set to False for healthy people not infected.
+    If a person is infected, set to True.
 
     __init__(self, _id, is_vaccinated, infected=False):
         - self.alive should be automatically set to true during instantiation.
@@ -31,19 +28,7 @@ class Person(object):
         - If person is chosen to be infected for first round of simulation,
         then the object should create a Virus object and set it as the value
         for self.infection.  Otherwise, self.infection should be set to None.
-
-    did_survive_infection(self):
-        - Only called if infection attribute is not None.
-        - Takes no inputs.
-        - Generates a random number between 0 and 1.
-        - Compares random number to mortality_rate attribute stored in person's
-         infection attribute.
-            - If random number is smaller, person has died from disease.
-            is_alive is changed to false.
-            - If random number is larger, person has survived disease.
-            Person's is_vaccinated attribute is changed to True, and set self.
-            infected to None.
-    """
+        '''
 
     def __init__(self, _id, is_vaccinated=None, is_alive=True, infected=None):
         """Initialize person with vaccination/infection properties."""
@@ -54,29 +39,30 @@ class Person(object):
         self.infected = infected  # store the mortality_rate
 
     def did_survive_infection(self):
-        """Check if person survived infection."""
-        # TODO:  Write Test for method
-        # Follow the instructions in the class documentation
-        # for resolve_infection.  If person dies, set is_alive to False
-        # and return False.
-        # If person lives, set is_vaccinated = True infected = None return True
+        '''
+        Check if person survived infection
+        Only called if infection attribute is True. Takes no inputs.
+        Generates a random number between 0 and 1, Compares random number to
+        mortality_rate. If random num is smaller, person dies from disease.
+        is_alive is changed to False, else person survives disease.
+        is_vaccinated is changed to True, and self.infected is False.
+        '''
         rand_num = random.uniform(0, 1)
-        if rand_num < self.infected.mortality_rate:
+        if rand_num < self.mortality_rate:
             self.is_alive = False
             return False
         else:
             self.is_alive = True
             self.is_vaccinated = True
-            self.infected = None
+            self.infected = False
             return True
-        # print(rand_num)
 
     def infect_person():
         """"""
         pass
 
 
-# if __name__ == '__main__':
-#     hiv = Virus("HIV", 0.8, 0.3)
-#     person1 = Person(1, False, hiv)
-#     print(person1.did_survive_infection())
+if __name__ == '__main__':
+    hiv = Virus("HIV", 0.8, 0.3)
+    person1 = Person(1, False, hiv)
+    print(person1.did_survive_infection())
