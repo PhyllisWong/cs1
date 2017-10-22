@@ -93,14 +93,12 @@ class Simulation(object):
                 self.population.append(person_sick)
                 infected_count += 1
             else:
+                # Randomly instantiate Person object with vaccination
                 if random.uniform(0, 1) < self.vacc_percentage:
-                    # print("if statement")
                     self.population.append(Person(self.next_id, True))
                 else:
+                    # Instantiate Person with no vaccination or infection
                     self.population.append(Person(self.next_id, False))
-        for person in self.population:
-            print("ID: {}\tVacc: {}\tInfected: {}".format(person._id,
-                  person.is_vaccinated, person.infected))
         return self.population
 
     def _simulation_should_continue(self):
@@ -110,11 +108,9 @@ class Simulation(object):
         OR: There are zero infected people in the population.
         '''
         for person in self.population:
-            if person.is_alive:
-                # print("Sim should keep running")
-                if person.infected:
-                    # print("Sim should keep running")
-                    return True
+            if person.is_alive and person.infected:
+                print("Sim should keep running")
+                return True
         print("Sim should stop")
         return False
 
@@ -129,6 +125,10 @@ class Simulation(object):
         This method calles logger's log_time_step(time_step_counter)
         at the end of each time step!
         '''
+        # Log start of simulation
+        self.logger.write_metadata(self.pop_size, self.vacc_percent,
+                                   self.virus, self.mortality_rate,
+                                   self.vitality_rate)
         time_step_counter = 0
         should_continue = self._simulation_should_continue()
         while should_continue:
@@ -151,10 +151,11 @@ class Simulation(object):
             if person.infected is True:
                 counter = 0
                 while counter < 100:
-                    random_num = random.range(1, len(self.population))
-                    random_person = self.population[random_num]
-                    self.interaction(person, random_person)
-                    counter += 1
+                    random_id = random.range(1, len(self.population))
+                    random_person = self.population[random_id]
+                    if random_person.is_alive:
+                        self.interaction(person, random_person)
+                        counter += 1
         self.total_infected += len(self.newly_infected)
         self.update_infection_state()
 
@@ -183,7 +184,6 @@ class Simulation(object):
                 print("random_person contracts the virus")
                 self.newly_infected.append(random_person._id)
                 self.logger.log_interaction(person, random_person, "Did infect")
-        pass
 
     def update_infection_state(self):
         '''At the end of each time_step, update the infection state of all newly
@@ -195,6 +195,7 @@ class Simulation(object):
                 del self.newly_infected[0]
             if len(self.newly_infected) == 0:
                 break
+        self.newly_infected = []
 
 
 # if __name__ == "__main__":
@@ -213,7 +214,7 @@ class Simulation(object):
 #     sim.run()
 
 
-sim = Simulation(10, 0.2, "HIV", 0.8, 0.5, 2)
+sim = Simulation(100, 0.2, "HIV", 0.8, 0.5, 2)
 # for person in sim.population:
 #     print("ID: {}\tVacc: {}\tInfected: {}".format(person._id, person.is_vaccinated,
 #           person.infected))

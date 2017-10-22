@@ -58,18 +58,25 @@ class Logger(object):
         the possible edge cases!
         NOTE: Make sure to end every line with a '/n' character!
         """
-        interaction = "{}\t{}\t{}\t{}\t{}\n".format(person1, person2, did_infect, person2_vacc, person2_sick)
+        interaction = "{}\t{}\t{}\t{}\t{}\n".format(person1, person2,
+                       did_infect, person2_vacc, person2_sick)
         with open("./logs/logging.txt", "a") as f:
             f.write(interaction)
 
     def log_infection_survival(self, person, did_die_from_infection):
-        # TODO: The Simulation object should use this method to log the results
-        # of every call of a Person object's .resolve_infection() method.
-        # If the person survives, did_die_from_infection should be False.
-        # Otherwise, did_die_from_infection should be True.
-        # See the documentation for more details on the format of the log.
-        # NOTE: Make sure to end every line with a '/n' character!
-        pass
+        '''
+        Simulation object uses this method to log results of every call of a
+        Person object's .resolve_infection() method. If the person survives,
+        did_die_from_infection should be False. Otherwise, should be True.
+        '''
+        result = ""
+        if not did_die_from_infection:
+            result = "survived infection"
+        else:
+            result = "died from infection"
+        log_line = "{} {}\n".format(person, result)
+        with open("./logs/logger.txt", "a") as f:
+            f.write(log_line)
 
     def log_time_step(self, time_step_number):
         # TODO: This method should log when a time step ends,
