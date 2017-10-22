@@ -26,7 +26,7 @@ class Simulation(object):
     object. Each person has a unique _id value.
 
     virus_name: String.  The name of the virus for the simulation.
-    This will be passed to the Virus object upon instantiation.
+    This will be passed to the Simulation object upon instantiation.
 
     mortality_rate: Float between 0 and 1.  This will be passed
     to the Virus object upon instantiation.
@@ -145,92 +145,58 @@ class Simulation(object):
         print('The simulation has ended after {} turns.'.format(time_step_counter))
 
     def time_step(self):
-        # TODO: This method contains all the basic logic for computing
-        # one time step in the simulation. This includes:
-            # - For each infected person in the population:
-            # - Repeat for 100 total interactions:
-            # - Grab a random person from the population.
-            # - If the person is dead, continue and grab another new
-            # person from the population. Since we don't interact
-            # with dead people, this does not count as an interaction.
-            # - Else:
-            # - Call simulation.interaction(person, random_person)
-            # - Increment interaction counter by 1.
-            for person in self.population:
-                if person.infected is True:
-                    counter = 0
-                    while counter < 100:
-                        random_num = random.range(1, len(self.population))
-                        random_person = self.population[random_num]
-                        self.interaction(person, random_person)
-                        counter += 1
-            pass
+        '''Method contains all the logic for computing one time step in the
+        simulation. This includes:
+        For each infected person in the population:
+            - Repeat for 100 total interactions:
+            - Grab a random person from the population. Check they are alive.
+            - Call simulation.interaction(person, random_person)
+            - Increment interaction counter by 1.
+            '''
+        for person in self.population:
+            if person.infected is True:
+                counter = 0
+                while counter < 100:
+                    random_num = random.range(1, len(self.population))
+                    random_person = self.population[random_num]
+                    self.interaction(person, random_person)
+                    counter += 1
+        self.update_infection_state()
 
     def interaction(self, person, random_person):
         '''
         This method is called any time two living people are selected for
-        an interaction. Assert statements are included to make sure that
-        only living people interact. If both people are vaccinated, nothing
-        happens, if one person either person is infected and the other
-        unvaccinated, there is a chance they can get infected. All interactions
-        are logged.
+        an interaction. Person will always be infected, random_person could
+        have 3 different states of vaccination or infection. Assert statements
+        are included to make sure that only living people interact.
+        All interactions are logged.
         '''
+        assert person.infected is True
         assert person.is_alive is True
         assert random_person.is_alive is True
         # both people are vaccinated, then both people cant be infected
-        if person.vaccinated is True:
-            if random_person.vaccinated is True:
-                self.logger.log_interaction()
-        # Both people are infected, then both cant be vaccinated
-        elif person.infected is True:
-            if random_person.infected is True:
-                self.logger.log_interaction()
-        # Both are not vaccinated and not infected
-        elif person.vaccinated is False and person.infected is False:
-            if random_person.vaccinated is False and random_person.infected is False:
-                self.logger.log_interaction()
-        # person is vaccinated not infected, random_person not vacc or infected
-        elif person.vaccinated is True:
-            if random_person.vaccinated is False and random_person.infected is False:
-                self.logger.log_interaction()
-        # random_person is vaccinated not infected, person not vacc or infected
-        elif random_person.vaccinated is True:
-            if person.vaccinated is False and person.infected is False:
-                self.logger.log_interaction()
-        # person is vaccinated not infected, random_person is infected
-        elif person.vaccinated is True:
-            if random_person.infected is True:
-                self.logger.log_interaction()
-        # random_person is vaccinated not infected, person is infected
-        elif random_person.vaccinated is True:
-            if person.infected is True:
-                self.logger.log_interaction()
-        # person is not vaccinated or infected, random_person is infected
-        elif person.vaccinated is False and person.infected is False:
-            if random_person.infected is True:
-                rand_num = random.uniform(0, 1)
-                if rand_num < self.basic_repro_num:
-                    print("random_person contracts the virus")
-                    self.newly_infected.append(random_person._id)
-                    self.logger.log_interaction()
-        # random_person is not vaccinated or infected, person is infected
-        elif random_person.vaccinated is False and random_person.infected is False:
-            if person.infected is True:
-                rand_num = random.uniform(0, 1)
-                if rand_num < self.basic_repro_num:
-                    print("random_person contracts the virus")
-                    self.newly_infected.append(random_person._id)
-                    self.logger.log_interaction()
-                    pass
+        # random_person is infected, nothing happens
+        if random_person.infected:
+            self.logger.log_interaction(person, random_person, "Already infected")
+        # random_person is vaccinated, nothing happens
+        elif random_person.vaccinated:
+            self.logger.log_interaction(person, random_person, False, "Vaccinated")
+        # random_person not vaccinated or infected
+        else:
+            rand_num = random.uniform(0, 1)
+            if rand_num < self.basic_repro_num:
+                print("random_person contracts the virus")
+                self.newly_infected.append(random_person._id)
+                self.logger.log_interaction(person, random_person, "Did infect")
+        pass
 
-    # def _infect_newly_infected(self):
-    #     for person in self.population:
-    #         if self.newly_infected[0] == person._id:
-    #             person.infected = True
-    #             del self.newly_infected[0]
-    #     if len(self.newly_infected) == 0:
-    #         break
-    #     pass
+    def update_infection_state(self):
+        for person in self.population:
+            if self.newly_infected[0] == person._id:
+                person.infected = True
+                del self.newly_infected[0]
+            if len(self.newly_infected) == 0:
+                break
 
 
 # if __name__ == "__main__":
