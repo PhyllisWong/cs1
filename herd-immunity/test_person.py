@@ -9,5 +9,6 @@ def setup_for_test():
     assert person.is_alive is True
     assert person.infected is None
 
+
 # _id, is_vaccinated=None, is_alive=True, infected=None
 setup_for_test()

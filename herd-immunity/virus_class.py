@@ -1,5 +1,6 @@
 import pytest
 
+
 class Virus(object):
     """Properties and attributes of the virus used in Simulation."""
 
@@ -8,6 +9,7 @@ class Virus(object):
         self.name = name
         self.mortality_rate = mortality_rate
         self.repro_rate = repro_rate
+
 
 def test_virus_instatiation():
     """Check to make sure that the virus instantiator is working."""
