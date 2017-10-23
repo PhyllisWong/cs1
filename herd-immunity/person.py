@@ -37,7 +37,7 @@ class Person(object):
         self.is_alive = is_alive
         self.infected = infected
 
-    def did_survive_infection(self):
+    def did_survive_infection(self, mortality_rate):
         '''
         Check if person survived infection
         Only called if infection attribute is True. Takes no inputs.
@@ -47,7 +47,9 @@ class Person(object):
         is_vaccinated is changed to True, and self.infected is False.
         '''
         rand_num = random.uniform(0, 1)
-        if rand_num < self.mortality_rate:
+
+        print(str(self._id) + " " + str(mortality_rate) + " " + str(rand_num))
+        if rand_num < mortality_rate:
             self.is_alive = False
             return False
         else:

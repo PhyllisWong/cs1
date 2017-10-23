@@ -1,1 +1,299 @@
-1000	0.2	HIV	0.8	0.5
+10	0.2	HIV	0.8	0.5
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247390>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5160>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247390>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247390>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247320>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247390>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247390>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5160>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5160>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247320>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247320>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5fd0>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247390>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247320>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5160>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247320>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1032473c8>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1032473c8>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247390>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1032473c8>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5160>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247390>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247320>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247390>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5fd0>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247320>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1030d79b0>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5160>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247320>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1032473c8>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x1021a5fd0>	Did infect	False	None
+<person.Person object at 0x102184d30>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184d30>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5fd0>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5fd0>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247320>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5fd0>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1032473c8>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1032473c8>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5fd0>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247390>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247390>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5160>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5160>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247390>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1032473c8>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5160>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5160>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5fd0>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1032473c8>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247390>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247390>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1032473c8>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1032473c8>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1030d79b0>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247320>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5fd0>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5160>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247320>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247390>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1030d79b0>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5160>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5160>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5fd0>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1030d79b0>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1030d79b0>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184da0>	<person.Person object at 0x1030d79b0>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1030d79b0>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5160>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184da0>	<person.Person object at 0x1021a5f60>	False	True	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247390>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x1030d79b0>	Did infect	False	None
+<person.Person object at 0x102184da0>	<person.Person object at 0x102184da0>	False	False	HIV
+<person.Person object at 0x102184da0>	<person.Person object at 0x103247320>	Did infect	False	None
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1030d79b0>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1030d79b0>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247320>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247320>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247320>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247320>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1030d79b0>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1030d79b0>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1030d79b0>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247320>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1030d79b0>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1030d79b0>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1030d79b0>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247320>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1030d79b0>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1030d79b0>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1030d79b0>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1030d79b0>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247320>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1030d79b0>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1030d79b0>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1030d79b0>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1030d79b0>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1030d79b0>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x1030d79b0>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247320>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247320>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247320>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247320>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247320>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247320>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247320>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247320>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247320>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247320>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247320>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247320>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247320>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247320>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247320>	<person.Person object at 0x103247320>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247320>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247320>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247390>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247390>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247390>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247390>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247390>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247390>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247390>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247390>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247390>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247390>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247390>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x103247390>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x103247390>	<person.Person object at 0x103247390>	False	True	HIV
+<person.Person object at 0x1032473c8>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1032473c8>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1032473c8>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1032473c8>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1032473c8>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x1032473c8>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1032473c8>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1032473c8>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1032473c8>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1032473c8>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1032473c8>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x1032473c8>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x1032473c8>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x1032473c8>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1032473c8>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1032473c8>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x1032473c8>	<person.Person object at 0x103247400>	False	True	None
+<person.Person object at 0x1032473c8>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1032473c8>	<person.Person object at 0x1032473c8>	False	True	HIV
+<person.Person object at 0x1032473c8>	<person.Person object at 0x103247400>	False	True	None
