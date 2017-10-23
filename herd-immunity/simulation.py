@@ -98,10 +98,7 @@ class Simulation(object):
         '''
         for person in self.population:
             if person.is_alive and person.infected:
-                print(person._id)
-                # print("Sim should keep running")
                 return True
-        # print("Sim should stop")
         return False
 
     def run(self):
@@ -122,14 +119,11 @@ class Simulation(object):
         time_step_counter = 0
         should_continue = self._simulation_should_continue()
         while should_continue:
-            print("HERE?")
             self.time_step()
-            print("Another time step")
             should_continue = self._simulation_should_continue()
             time_step_counter += 1
             self.logger.log_time_step(time_step_counter)
-
-        # print('The simulation has ended after {} turns.'.format(time_step_counter))
+        print('The simulation has ended after {} turns.'.format(time_step_counter))
 
     def time_step(self):
         '''
@@ -148,11 +142,11 @@ class Simulation(object):
                     if person.is_alive is True and random_person.is_alive is True:
                         self.interaction(person, random_person)
                     counter += 1
-
             person.did_survive_infection(self.mortality_rate)
-
         self.total_infected += len(self.newly_infected)
+        print("Update infection")
         self.update_infection_state()
+        print("Update infection happened")
 
     def interaction(self, person, random_person):
         '''
@@ -163,40 +157,37 @@ class Simulation(object):
         All interactions are logged.
         '''
         assert person.infected is not None
-
-        print(person.is_alive)
         assert person.is_alive is True
         assert random_person.is_alive is True
         # both people are vaccinated, then both people cant be infected
         # random_person is infected, nothing happens
-
         if random_person.infected:
+            # print("HERE")
             self.logger.log_interaction(person, random_person, False, random_person.is_vaccinated,
             random_person.infected)
         # random_person is vaccinated, nothing happens
         elif random_person.is_vaccinated:
+            # print("NOT HERE")
             self.logger.log_interaction(person, random_person, False, random_person.is_vaccinated,
             random_person.infected)
         # random_person not vaccinated or infected
         else:
-            print("Some people will get infected")
             rand_num = random.uniform(0, 1)
             if rand_num < self.basic_repro_num:
-                # print("random_person contracts the virus")
                 if random_person._id not in self.newly_infected:
+                    # print("YES HERE")
                     self.newly_infected.append(random_person._id)
                 else:
-                    print("BEER")
-                # print(self.newly_infected)
-                self.logger.log_interaction(person, random_person, "Did infect",
-                random_person.is_vaccinated, random_person.infected)
+                    # print("HERE?")
+                    # print(self.newly_infected)
+                    self.logger.log_interaction(person, random_person, "Did infect",
+                    random_person.is_vaccinated, random_person.infected)
 
     def update_infection_state(self):
         """Update the infection state of all newly infected people."""
         # Update total_infected with num of newly_infected each time_step
         print("Here: " + str(self.newly_infected))
         self.newly_infected.sort()
-
         if len(self.newly_infected) < 1:
             return
         for person in self.population:
