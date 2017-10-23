@@ -22,40 +22,29 @@ def test_write_metadata():
 
 
 def test_log_interaction():
-    '''Test if log_interactions func appends to the logfile.'''
+    """Should log_interactions."""
     log1 = Logger("./logs/logging.txt")
     with open("./logs/logging.txt", "r") as f:
         log1.log_interaction("person1", "person2", "did_infect",
                              "person2_vacc", "person2_sick")
         first_line = f.readline()
         first_line = f.readline()
-        # print(test_text)
         assert first_line == "person1\tperson2\tdid_infect\tperson2_vacc\tperson2_sick\n"
 
 
 def test_log_infection_survival():
-        # TODO: he Simulation object should use this method to log
-        # the results of every call of a Person object's .resolve_infection() method.
-        # If the person survives, did_die_from_infection should be False. Otherwise,
-        # did_die_from_infection should be True. See the documentation for more details
-        # on the format of the log.
-        # NOTE: Make sure to end every line with a '/n' character to ensure that each
-        # event logged ends up on a separate line!
-        with open("./logs/logging.txt", "r") as f:
-            log1 = Logger("./logs/logging.txt")
-            line_one = f.readline()
-            # assert line_one == "{} died from infection".format("person.ID")
-            # "{person.ID} survived infection."
-            pass
+    """Should log_infection_survival."""
+    with open("./logs/logging.txt", "r") as f:
+        log = Logger("./logs/logging.txt")
+        line_one = f.readline()
+        assert line_one == "{} died from infection".format(log.person._id)
 
 
 def log_time_step():
-        # TODO: Finish this method.  This method should log when a time step ends, and a
-        # new one begins.  See the documentation for more information on the format of the log.
-        # NOTE: Stretch challenge opportunity! Modify this method so that at the end of each time
-        # step, it also logs a summary of what happened in that time step, including the number of
-        # people infected, the number of people dead, etc.  You may want to create a helper class
-        # to compute these statistics for you, as a Logger's job is just to write logs!
-        # NOTE: Make sure to end every line with a '/n' character to ensure that each
-        # event logged ends up on a separate line!
-        pass
+    """Log when time step ends and a new one begins."""
+    log = Logger("./logs/logging.txt")
+    log.log_time_step(log.time_step_number)
+    with open("./logs/logging.txt", "r") as f:
+        line_one = f.readline()
+        assert line_one == ("~~~~ End of {} Timestep ~~~~\n\nStart of {} timestep\n"
+                            .format(log.time_step_number, log.time_step_number+1))

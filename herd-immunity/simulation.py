@@ -63,22 +63,11 @@ class Simulation(object):
         self.file_name = "{}_simulation_pop_{}_vp_{}_infected_{}.txt".format(
             virus, pop_size, vacc_percentage, initial_infected)
         self.population = self._create_population(initial_infected)
-
-        # TODO: Create a Logger object and bind it to self.logger.
-        # Use this logger object to log all events during the sim.
-        # Don't forget to call the logger methods in the corresponding parts
-        # of the simulation!
-        self.logger = None
-
+        self.logger = Logger("./logs/logger.txt")
         # This attribute will be used to keep track of all the people that
         # catch the infection during a given time step. Store each newly
         # infected person's .ID attribute in here.
-        # At the end of each time step, we call self._infect_newly_infected()
-        # and then reset .newly_infected back to an empty list.
         self.newly_infected = []
-        # TODO: Call self._create_population() and pass in the correct
-        # parameters. Store the array that this method will return in the
-        # self.population attribute.
 
     def _create_population(self, initial_infected):
         self.current_infected = initial_infected
@@ -126,9 +115,9 @@ class Simulation(object):
         at the end of each time step!
         '''
         # Log start of simulation
-        self.logger.write_metadata(self.pop_size, self.vacc_percent,
+        self.logger.write_metadata(self.pop_size, self.vacc_percentage,
                                    self.virus, self.mortality_rate,
-                                   self.vitality_rate)
+                                   self.basic_repro_num)
         time_step_counter = 0
         should_continue = self._simulation_should_continue()
         while should_continue:
@@ -179,6 +168,7 @@ class Simulation(object):
             self.logger.log_interaction(person, random_person, False, "Vaccinated")
         # random_person not vaccinated or infected
         else:
+            print("Some people will get infected")
             rand_num = random.uniform(0, 1)
             if rand_num < self.basic_repro_num:
                 print("random_person contracts the virus")
@@ -186,38 +176,38 @@ class Simulation(object):
                 self.logger.log_interaction(person, random_person, "Did infect")
 
     def update_infection_state(self):
-        '''At the end of each time_step, update the infection state of all newly
-        infected peope.'''
+        """Update the infection state of all newly infected people."""
         # Update total_infected with num of newly_infected each time_step
+        print(self.newly_infected)
         for person in self.population:
             if self.newly_infected[0] == person._id:
-                person.infected = True
+                self.infect(self.virus)
                 del self.newly_infected[0]
             if len(self.newly_infected) == 0:
                 break
         self.newly_infected = []
 
 
-# if __name__ == "__main__":
-#     params = sys.argv[1:]
-#     pop_size = int(params[0])
-#     vacc_percentage = float(params[1])
-#     virus_name = str(params[2])
-#     mortality_rate = float(params[3])
-#     basic_repro_num = float(params[4])
-#     if len(params) == 6:
-#         initial_infected = int(params[5])
-#     else:
-#         initial_infected = 1
-#     sim = Simulation(pop_size, vacc_percentage, virus_name,
-#                      mortality_rate, basic_repro_num, initial_infected)
-#     sim.run()
+if __name__ == "__main__":
+    params = sys.argv[1:]
+    pop_size = int(params[0])
+    vacc_percentage = float(params[1])
+    virus_name = str(params[2])
+    mortality_rate = float(params[3])
+    basic_repro_num = float(params[4])
+    if len(params) == 6:
+        initial_infected = int(params[5])
+    else:
+        initial_infected = 1
+    sim = Simulation(pop_size, vacc_percentage, virus_name,
+                     mortality_rate, basic_repro_num, initial_infected)
+    sim.run()
 
 
-sim = Simulation(100, 0.2, "HIV", 0.8, 0.5, 2)
-# for person in sim.population:
-#     print("ID: {}\tVacc: {}\tInfected: {}".format(person._id, person.is_vaccinated,
-#           person.infected))
-sim._simulation_should_continue()
-print(sim.pop_size)
-print(sim.current_infected)
+# sim = Simulation(100, 0.2, "HIV", 0.8, 0.5, 2)
+# # for person in sim.population:
+# #     print("ID: {}\tVacc: {}\tInfected: {}".format(person._id,
+#             person.is_vaccinated, person.infected))
+# sim._simulation_should_continue()
+# print(sim.pop_size)
+# print(sim.current_infected)

@@ -1,2 +1,1 @@
-100	0.5	HIV	0.5	0.1
-person1	person2	did_infect	person2_vacc	person2_sick
+1000	0.2	HIV	0.8	0.5

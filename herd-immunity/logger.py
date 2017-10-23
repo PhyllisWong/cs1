@@ -3,11 +3,9 @@ class Logger(object):
     the simulation."""
 
     def __init__(self, file_name):
-        # TODO:  Finish this initialization method.  The file_name passed
-        # should be the full file name of the file that the logs will be
-        # written to.
-        # self.file_name = None
-        pass
+        """Initialize the file_name using the full file name passed in.
+        All log events are written to this file."""
+        self.file_name = file_name
 
     def write_metadata(self, pop_size, vac_percent, virus, kill_rate,
                        vitality_rate):
@@ -21,17 +19,11 @@ class Logger(object):
         f.write(line_one)
         f.close()
         return line_one
-        pass
 
     def log_interaction(self, person1, person2, did_infect,
                         person2_vacc, person2_sick):
-        """
-        Simulation object logs each interaction a sick individual has during
-        each time step.
-        NOTE:  Think about how the bools passed (or not passed) represent all
-        the possible edge cases!
-        NOTE: Make sure to end every line with a '/n' character!
-        """
+        """Simulation object logs each interaction a sick individual has during
+        each time step."""
         interaction = ("{}\t{}\t{}\t{}\t{}\n".format(person1, person2,
                        did_infect, person2_vacc, person2_sick))
         with open("./logs/logging.txt", "a") as f:

@@ -56,9 +56,9 @@ class Person(object):
             self.infected = None
             return True
 
-    def infect_person():
-        """"""
-        pass
+    def infect_person(self, virus):
+        """Infect person."""
+        self.infected = virus
 
 
 if __name__ == '__main__':
