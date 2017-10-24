@@ -13,7 +13,7 @@ class Logger(object):
         specific parameters of the simulation as the first line of the file.
         This line of metadata is tab-delimited."""
 
-        f = open("./logs/logging.txt", "w")
+        f = open("./logs/logger.txt", "w")
         line_one = ("{}\t{}\t{}\t{}\t{}\n".format(pop_size, vac_percent,
                     virus, kill_rate, vitality_rate))
         f.write(line_one)
@@ -26,7 +26,7 @@ class Logger(object):
         each time step."""
         interaction = ("{}\t{}\t{}\t{}\t{}\n".format(person1, person2,
                        did_infect, person2_vacc, person2_sick))
-        with open("./logs/logging.txt", "a") as f:
+        with open("./logs/logger.txt", "a") as f:
             f.write(interaction)
 
     def log_infection_survival(self, person, did_die_from_infection):
