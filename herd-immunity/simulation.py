@@ -140,6 +140,7 @@ class Simulation(object):
                     random_id = random.randint(1, len(self.population)-1)
                     random_person = self.population[random_id]
                     if person.is_alive is True and random_person.is_alive is True:
+                        print("Random dude: " + str(random_person._id))
                         self.interaction(person, random_person)
                     counter += 1
             person.did_survive_infection(self.mortality_rate)
@@ -174,8 +175,9 @@ class Simulation(object):
         else:
             rand_num = random.uniform(0, 1)
             if rand_num < self.basic_repro_num:
-                if random_person._id not in self.newly_infected:
-                    # print("YES HERE")
+                if not random_person.infected:
+                    print("YES HERE")
+                    random_person.infect_person(self.virus)
                     self.newly_infected.append(random_person._id)
                 else:
                     # print("HERE?")
